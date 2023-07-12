@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/PageSaisie.css">
+    <link rel="shortcut icon" type="image/jpg" href="../img/lo.jpg">
+    <title>Page saisie</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+        box-sizing: border-box;
+        background: #CCE6F4;
+    }
+    
+    .FORMULAIRE {
+        display: flex;
+        padding: 10px;
+        padding-top: 90px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container {
+        max-width: 700px;
+        width: 100%;
+        background: #fff;
+        padding: 25px 30px;
+        border-radius: 5px;
+    }
+    
+    .container .title {
+        background: white;
+        color: #D62839;
+        font-size: 35px;
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    form .user-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0 12px 0;
+    }
+    
+    form .user-details .input-box {
+        margin-bottom: 10px;
+        width: calc(100% / 2 - 20px);
+    }
+    
+    .user-details .input-box .form-step {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+    
+    .form-step .input-box input {
+        height: 50px;
+        width: 100%;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding-left: 15px;
+        font-size: 16px;
+        border-bottom-width: 3px;
+        transition: all 0.3s ease;
+    }
+    
+    .form-step .input-box input:focus,
+    .form-step .input-box input:valid {
+        border-color: #175676;
+    }
+    
+    form .button {
+        height: 45px;
+        margin: 45px 0;
+    }
+    
+    @media (max-width:584px) {
+        .container {
+            max-width: 100%;
+        }
+        form .user-details .input-box {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+    }
+    
+    span {
+        color: black;
+        font-size: 16px;
+        font-weight: 100;
+    }
+    
+    .menu-bar2 img {
+        width: 45px;
+        height: 30px;
+        float: left;
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+    
+    .menu-bar2 {
+        height: 70px;
+        width: 100%;
+        background-color: #175676;
+    }
+    
+    .menu-bar2 ul {
+        float: right;
+        margin-right: 10px;
+    }
+    
+    .menu-bar2 ul li {
+        display: inline-block;
+        line-height: 70px;
+        margin: 0 5px;
+    }
+    
+    .menu-bar2 ul li a {
+        color: white;
+        font-size: 15px;
+        text-decoration: none;
+        padding: 7px 13px;
+        border-radius: 1px;
+    }
+    
+    .menu-bar2 ul li a:hover {
+        background: #4BA3C3;
+        border-radius: 6px;
+        text-align: center;
+        transition: .5s;
+    }
+    
+    .menu-bar2 ul li form button {
+        text-decoration: none;
+        background: transparent;
+        color: white;
+        border: transparent;
+        font-size: 15px;
+        outline: none;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: 100;
+        letter-spacing: 1px;
+    }
+    
+    .menu-bar2 ul li form button:hover {
+        color: #4BA3C3;
+        text-align: center;
+        transition: .5s;
+        border-radius: 6px;
+    }
+    
+    footer {
+        position: absolute;
+        background-color: #175676;
+        height: auto;
+        width: 100vw;
+        font-family: "Open sans";
+        padding-top: 40px;
+        color: white;
+    }
+    
+    .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-content p {
+        max-width: 400px;
+        margin: 10px auto;
+        line-height: 20px;
+        font-size: 14px;
+    }
+    
+    .footer-content h3 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-transform: capitalize;
+        line-height: 3rem;
+    }
+    
+    .socials {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem 0 3rem 0;
+    }
+    
+    .socials li {
+        margin: 0 10px;
+    }
+    
+    .socials a {
+        text-decoration: none;
+        color: white;
+    }
+    
+    .socials a img {
+        font-size: 1.1rem;
+    }
+    
+    .footer-bottom {
+        width: 100vw;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .footer-bottom p {
+        font-size: 14px;
+        word-spacing: 2px;
+        text-transform: capitalize;
+    }
+    
+    footer img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    input {
+        margin: 5px;
+    }
+    
+    form .select {
+        padding: 1.2rem;
+        border-width: 1px;
+        border-radius: 6px;
+        width: 100%;
+        display: flex;
+        border-color: #3c3334;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.1rem;
+        cursor: pointer;
+    }
+    
+    .menu-bar {
+        text-align: center;
+        background-color: #4BA3C3;
+    }
+    
+    .menu-bar ul {
+        display: inline-flex;
+        list-style: none;
+        color: white;
+    }
+    
+    .menu-bar ul li {
+        width: 190px;
+        margin: 14px;
+        padding: 10px;
+    }
+    
+    .menu-bar ul li a {
+        text-decoration: none;
+        color: white;
+    }
+    
+    .menu-bar ul li:hover {
+        background: #F3BFC4;
+        border-radius: 50px;
+    }
+    
+    button {
+        outline: none;
+        color: white;
+        background: #4BA3C3;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+    
+    button input:hover {
+        background: #175676;
+    }
+    
+    nav ul li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .logo {
+        cursor: pointer;
+        margin-right: 150px;
+        margin-left: 25px;
+    }
+    
+    .nav-links2 {
+        list-style: none;
+    }
+    
+    .nav-links2 li {
+        display: inline-block;
+        padding: 10px 10px;
+    }
+    
+    .nav-links2 li a {
+        transition: all 0.3s ease 0s;
+        font-size: 14px;
+        color: black
+    }
+    
+    .nav-links2 li a:hover {
+        color: white;
+    }
+    
+    .submenu1 {
+        display: none;
+    }
+    
+    .nav-links2 li:hover .submenu1 ul {
+        display: block;
+        margin: 10px;
+    }
+    
+    nav .nav-links2 li:hover .submenu1 ul li {
+        width: 90px;
+        padding: 5px;
+        border-bottom: 1px dotted #fff;
+        background: transparent;
+        border-radius: 0;
+        text-align: center;
+        text-decoration: none;
+        align-items: center;
+    }
+    
+    .nav-links2 li:hover .submenu1 ul li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links2 li:hover .submenu1 ul li a:hover {
+        color: #175676;
+    }
+    
+    .menu {
+        text-decoration: none;
+        text-align: center;
+        padding: 50px;
+        margin: 5px;
+    }
+    
+    .menu h1 {
+        font-size: 20px;
+        color: #D62839;
+    }
+    
+    .nav-links2 img {
+        width: 30px;
+        height: 30px;
+        margin: 15px;
+        vertical-align: middle;
+    }
+    
+    .MENUU {
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    header nav img {
+        width: 10px;
+        height: 10px;
+        margin: 0;
+    }
+    
+    .logo {
+        cursor: pointer;
+        margin-right: 150px;
+        margin-left: 25px;
+    }
+    
+    .submenu1 {
+        display: none;
+    }
+    
+    img {
+        width: 50px;
+        height: 34px;
+        margin: 15px;
+        vertical-align: middle;
+    }
+    
+    header {
+        height: 70px;
+        background: #175676;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        z-index: 10;
+    }
+    
+    .navv {
+        background-color: #EDD2D7;
+        color: black;
+    }
+    
+    .menu {
+        text-align: center;
+        padding: 50px;
+        margin: 5px;
+    }
+    
+    .menu h1 {
+        font-size: 20px;
+        color: #D62839;
+    }
+    
+     :root {
+        --primary-color: rgb(11, 78, 179);
+    }
+    
+    .width-50 {
+        width: 50%;
+    }
+    
+    .ml-auto {
+        margin-left: auto;
+    }
+    
+    .text-center {
+        text-align: center;
+    }
+    /* Progressbar */
+    
+    .progressbar {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        counter-reset: step;
+        margin: 2rem 0 4rem;
+    }
+    
+    .progressbar::before,
+    .progress {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 4px;
+        width: 100%;
+        background-color: #dcdcdc;
+        z-index: -1;
+    }
+    
+    .progress {
+        background-color: var(--primary-color);
+        width: 0%;
+        transition: 0.3s;
+    }
+    
+    .progress-step {
+        width: 2.1875rem;
+        height: 2.1875rem;
+        background-color: #dcdcdc;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .progress-step::before {
+        counter-increment: step;
+        content: counter(step);
+    }
+    
+    .progress-step::after {
+        content: attr(data-title);
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        font-size: 0.85rem;
+        color: #666;
+    }
+    
+    .progress-step-active {
+        background-color: var(--primary-color);
+        color: #f3f3f3;
+    }
+    /* Form */
+    
+    .form-step {
+        display: none;
+        transform-origin: top;
+        animation: animate 0.5s;
+    }
+    
+    .form-step-active {
+        display: block;
+    }
+    
+    .input-group {
+        margin: 2rem 0;
+    }
+    
+    @keyframes animate {
+        from {
+            transform: scale(1, 0);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1, 1);
+            opacity: 1;
+        }
+    }
+    /* Button */
+    
+    .btns-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .btn {
+        padding: 0.75rem;
+        display: block;
+        text-decoration: none;
+        background-color: var(--primary-color);
+        color: #f3f3f3;
+        text-align: center;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .btn:hover {
+        box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+    }
+</style>
+
+<div class="MENUU">
+    <header>
+        <div class="menu-bar2" id="click">
+            <img src="../img/whitelogo.png" alt="logo">
+            <ul>
+                <li><a href="http://127.0.0.1:3000/profil">Accueil</a></li>
+                <li><a href="#">A propos</a></li>
+                <li><a href="#">Mon profile</a>
+                </li>
+                <li>
+                    <form action="/logout?_method=DELETE" method="POST">
+                        <button type="submit">Deconnexion</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <% if (message.length > 0){  %>
+            <div style="text-align: left;" class="alert">
+                <%= message %>
+            </div>
+            <% } %>
+    </header>
+
+    <div class="navv">
+        <nav>
+            <ul class="nav-links2">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li>
+                    <a href="#"> <img src="../img/profiledit.png">Sauvgarder</a>
+                </li>
+                <li>
+                    <a data-toggle="modal" data-target="#modale" href="#"> <img src="../img/statistiques.png">Ouvrir l'état</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/recours.png" alt="">Imprimer formulaire</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/dossier.png">Suprimer</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/archive.png">Liste personnel</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<body>
+    <!-- FORMULAIRE SAISIR -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="FORMULAIRE">
+        <div class="container">
+
+            <form method="POST" action="/saisie" name="formulaire" id="contact-form">
+                <br>
+                <h1 class="text-center">Formulaire d'inscription</h1>
+                <br>
+                <!-- Progress bar -->
+
+                <div class="progressbar">
+                    <div class="progress" id="progress"></div>
+
+                    <div class="progress-step progress-step-active" data-title="EtatCivil"></div>
+                    <div class="progress-step" data-title="EtatCivil2"></div>
+                    <div class="progress-step" data-title="Expérience"></div>
+                    <div class="progress-step" data-title="Conjoint"></div>
+                    <div class="progress-step" data-title="Droits"></div>
+                </div>
+
+
+
+
+                <div class="form-step form-step-active">
+                    <div class="title"> Etat civil </div>
+                    <div class="input-box">
+                        <span class="details">Matricule</span>
+                        <input type="text" placeholder="Entrer le matricule" name="matricule" id="matricule" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Numéro de dossier</span>
+                        <input type="number" placeholder="Entrer le numéro de dossier" name="Numero_de_dossier" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Nom</span>
+                        <input type="text" placeholder="Entrer le nom" name="Nom" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Prénom</span>
+                        <input type="text" placeholder="Entrer le prénom" name="Prenom" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Age</span>
+                        <input type="number" placeholder="Entrer l'age" name="Age" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Date de naissance</span>
+                        <input type="date" name="Date_de_naissance" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Commune de naissance</span>
+                        <input type="text" placeholder="" name="Commune_de_naissance" required>
+                    </div>
+                    <span class="details">Wilaya</span>
+                    <select class="select" name="Wilaya" size="1" required>
+                        <option>01. Adrar</option>
+                        <option>02. Chlef</option>
+                        <option>03. Laghouat</option>
+                        <option>04. Oum El Bouaghi</option>
+                        <option>05. Batna</option>
+                        <option>06. Bejaia</option>
+                        <option>07. Biska</option>
+                        <option>08. Bechar</option>
+                        <option>09. Blida</option>
+                        <option>10. Bouira</option>
+                        <option>11. Tamanrasset</option>
+                        <option>12. Tebessa</option>
+                        <option>13. Tlemcen</option>
+                        <option>14. Tiaret</option>
+                        <option>15. Tizi Ouzou</option>
+                        <option>16. Alger</option>
+                        <option>17. Djelfa</option>
+                        <option>18. Djijel</option>
+                        <option>19. Setif</option>
+                        <option>20. Saida</option>
+                        <option>21. Skikda</option>
+                        <option>22. Sidi Bel Abbes</option>
+                        <option>23. Annaba</option>
+                        <option>24. Guelma</option>
+                        <option>25. Constantine</option>
+                        <option>26. Medea</option>
+                        <option>27. Mostaganem</option>
+                        <option>28. M'Sila</option>
+                        <option>29. Mascara</option>
+                        <option>30. Ouargla</option>
+                        <option>31. Oran</option>
+                        <option>32. El Bayadh</option>
+                        <option>33. Illizi</option>
+                        <option>34. Bordj Bou Arreridj</option>
+                        <option>35. Boumerdes</option>
+                        <option>36. El Tarf</option>
+                        <option>37. Tindouf</option>
+                        <option>38. Tissemsilt</option>
+                        <option>39. El Oued</option>
+                        <option>40. Khenchela</option>
+                        <option>41. Souk Ahras</option>
+                        <option>42. Tipaza</option>
+                        <option>43. Mila</option>
+                        <option>44. Ain Defla</option>
+                        <option>45. Naama</option>
+                        <option>46. Ain Temouchent</option>
+                        <option>47. Ghardaia</option>
+                        <option>48. Relizane</option>
+
+                    </select>
+
+                    <span class="details"> Sexe</span>
+                    <select class="select" name="choix_sexe" size="1" required>
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
+                    </select>
+
+                    <div class="input-box">
+                        <span class="details">Adresse</span>
+                        <input type="text" placeholder="Entrer l'adresse " name="Adresse" required>
+                    </div>
+                    <div class="">
+                        <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+                    </div>
+                </div>
+
+
+
+                <div class="form-step">
+                    <div class="title"> Etat civil </div>
+                    <div class="input-box">
+                        <span class="details">Numéro de telephone</span>
+                        <input type="text" placeholder="Entrer le numero de telephone" name="Numero_de_telephone" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="email" placeholder="adressemail@esi.dz" name="Email" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Code postal</span>
+                        <input type="text" placeholder="Entrer le code postal" name="Code_postal" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Prénom du père</span>
+                        <input type="text" placeholder="Entrer le prénom du pere" name="Prenom_du_pere" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Nom de la mère</span>
+                        <input type="text" placeholder="Entrer le nom de la mere" name="Nom_mere" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Prénom de la mère</span>
+                        <input type="text" placeholder="Entrer le prénom de la mere" name="Prenom_mere" required>
+                    </div>
+
+                    <div class="user-details">
+                        <span>Situation familiale </span>
+                        <select class="select" name="Situation_familiale" id="situation" size="1" onchange="changeStatus()" required>
+            
+                            <option value="Marie(é)">Marie(é)</option>
+                            <option value="Divorce">Divorce(é)</option>
+                            <option value="Celibataire" selected>Célibataire</option>
+                            <option value="Veuf(ve)">Veuf(ve)</option>
+                        </select>
+                    </div>
+                    <div class="user-details">
+
+                        <div class="input-box">
+                            <span class="details">Nombre d'enfants</span>
+                            <input type="number" placeholder="Entrer le nombre d'enfants" name="Nombre_enfants" id='nbenf' required>
+                        </div>
+                    </div>
+
+                    <div class="btns-group">
+                        <a href="#" class="btn btn-prev">Previous</a>
+                        <a href="#" class="btn btn-next">Next</a>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <div class="form-step">
+                    <div class="title"> Expérience professionnelle </div>
+
+                    <div class="input-box">
+                        <span class="details">Ecole</span>
+                        <input type="text" placeholder="Entrer l'ecole" name="Ecole" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Direction/Service</span>
+                        <input type="text" placeholder="Direction/Service" name="Direction_Service" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Grade</span>
+                        <input type="number" placeholder="Entrer le grade" name="Grade" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Date debut d'installation</span>
+                        <input type="date" name="Date_debut_installation" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Date fin d'installation</span>
+                        <input type="date" name="Date_fin_installation" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Date debut hors secteur</span>
+                        <input type="date" name="Date_debut_hors_secteur" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Date fin hors secteur</span>
+                        <input type="date" name="Date_fin_hors_secteur" required>
+                    </div>
+
+                    <span class="details"> Responsabilité </span>
+                    <select class="select" name="choix_respo" size="1">
+                        <option value="Secrétaire général">Secrétaire général</option>
+                        <option value="Sous directeur">Sous directeur</option>
+                        <option value="Responsable de structure">Responsable de structure</option>
+                        <option value="Chef de service rectorat">Chef de service rectorat</option>
+                        <option value="Chef de bureau">Chef de bureau</option>
+                        <option value="Chef de service institut">Chef de service institut</option>
+                        <option value="Chef de section">Chef de section</option>
+                    </select>
+                    <div class="input-box">
+                        <span class="details">Autre responsabilité</span>
+                        <input type="text" placeholder="Responsabilité" name="Respondabilite">
+                    </div>
+                    <br>
+                    <div class="btns-group">
+                        <a href="#" class="btn btn-prev">Previous</a>
+                        <a href="#" class="btn btn-next">Next</a>
+                    </div>
+                </div>
+
+
+
+                <div class="form-step">
+                    <div class="title"> Conjoint </div>
+                    <div class="input-box">
+                        <span class="details">Nom</span>
+                        <input type="text" placeholder="Entrer le nom" name="Nom_conjoint" id="nmcj">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Prénom</span>
+                        <input type="text" placeholder="Entrer le prénom" name="Prenom_conjoint">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Date de naissance</span>
+                        <input type="date" name="Date_naissance_conjoint">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Commune de naissance</span>
+                        <input type="text" placeholder="" name="Commune_naissance_conjoint">
+                    </div>
+                    <span class="details"> Wilaya</span>
+                    <select class="select" name="Wilaya_conjoint" size="1">
+                        <option>01. Adrar</option>
+                        <option>02. Chlef</option>
+                        <option>03. Laghouat</option>
+                        <option>04. Oum El Bouaghi</option>
+                        <option>05. Batna</option>
+                        <option>06. Bejaia</option>
+                        <option>07. Biska</option>
+                        <option>08. Bechar</option>
+                        <option>09. Blida</option>
+                        <option>10. Bouira</option>
+                        <option>11. Tamanrasset</option>
+                        <option>12. Tebessa</option>
+                        <option>13. Tlemcen</option>
+                        <option>14. Tiaret</option>
+                        <option>15. Tizi Ouzou</option>
+                        <option>16. Alger</option>
+                        <option>17. Djelfa</option>
+                        <option>18. Djijel</option>
+                        <option>19. Setif</option>
+                        <option>20. Saida</option>
+                        <option>21. Skikda</option>
+                        <option>22. Sidi Bel Abbes</option>
+                        <option>23. Annaba</option>
+                        <option>24. Guelma</option>
+                        <option>25. Constantine</option>
+                        <option>26. Medea</option>
+                        <option>27. Mostaganem</option>
+                        <option>28. M'Sila</option>
+                        <option>29. Mascara</option>
+                        <option>30. Ouargla</option>
+                        <option>31. Oran</option>
+                        <option>32. El Bayadh</option>
+                        <option>33. Illizi</option>
+                        <option>34. Bordj Bou Arreridj</option>
+                        <option>35. Boumerdes</option>
+                        <option>36. El Tarf</option>
+                        <option>37. Tindouf</option>
+                        <option>38. Tissemsilt</option>
+                        <option>39. El Oued</option>
+                        <option>40. Khenchela</option>
+                        <option>41. Souk Ahras</option>
+                        <option>42. Tipaza</option>
+                        <option>43. Mila</option>
+                        <option>44. Ain Defla</option>
+                        <option>45. Naama</option>
+                        <option>46. Ain Temouchent</option>
+                        <option>47. Ghardaia</option>
+                        <option>48. Relizane</option>
+
+                    </select>
+                    <br>
+                    <div class="input-box">
+                        <span class="details">Prénom du père</span>
+                        <input type="text" placeholder="Entrer le prénom du pere" name="Prenom_pere_conjoint">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Nom de la mère</span>
+                        <input type="text" placeholder="Entrer le nom de la mere" name="Nom_mere_conjoint">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Prénom de la mère</span>
+                        <input type="text" placeholder="Entrer le prénom de la mere" name="Prenom_mere_conjoint">
+                    </div>
+                    <div class="user-details">
+                        <span class="details"> Conjoint au MESRS </span>
+                        <select class="select" name="choix_MESRS" size="1" required>
+                            <option value="Oui">Oui</option>
+                            <option value="Non">Non</option>
+                        </select>
+                    </div>
+
+                    <div class="btns-group">
+                        <a href="#" class="btn btn-prev">Previous</a>
+                        <a href="#" class="btn btn-next">Next</a>
+                    </div>
+                </div>
+
+
+                <div class="form-step">
+                    <div class="title"> Ayant droits </div>
+                    <span class="details">Moudjahid </span>
+                    <select class="select" name="choix_Moudjahid" size="1" required>
+                        <option value="Oui">Oui</option>
+                        <option value="Non">Non</option>
+                    </select>
+                    <span class="details"> Fils/fille de Chahid  </span>
+                    <select class="select" name="choix_Chahid" size="1" required>
+                        <option value="Oui">Oui</option>
+                        <option value="Non">Non</option>
+                    </select>
+                    <span class="details"> Veuf de Chahid  </span>
+                    <select class="select" name="choix_veufChahid" size="1" required>
+                        <option value="Oui">Oui</option>
+                        <option value="Non">Non</option>
+                    </select>
+                    <br>
+                    <div class="btns-group">
+                        <a href="#" class="btn btn-prev">Previous</a>
+                        <input type="submit" value="Submit" class="btn" />
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- OUVRIR L'ETAT -->
+
+
+    <script>
+        const prevBtns = document.querySelectorAll(".btn-prev");
+        const nextBtns = document.querySelectorAll(".btn-next");
+        const progress = document.getElementById("progress");
+        const formSteps = document.querySelectorAll(".form-step");
+        const progressSteps = document.querySelectorAll(".progress-step");
+
+        let formStepsNum = 0;
+
+        nextBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                formStepsNum++;
+                updateFormSteps();
+                updateProgressbar();
+            });
+        });
+
+        prevBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                formStepsNum--;
+                updateFormSteps();
+                updateProgressbar();
+            });
+        });
+
+        function updateFormSteps() {
+            formSteps.forEach((formStep) => {
+                formStep.classList.contains("form-step-active") &&
+                    formStep.classList.remove("form-step-active");
+            });
+
+            formSteps[formStepsNum].classList.add("form-step-active");
+        }
+
+        function updateProgressbar() {
+            progressSteps.forEach((progressStep, idx) => {
+                if (idx < formStepsNum + 1) {
+                    progressStep.classList.add("progress-step-active");
+                } else {
+                    progressStep.classList.remove("progress-step-active");
+                }
+            });
+
+            const progressActive = document.querySelectorAll(".progress-step-active");
+
+            progress.style.width =
+                ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
+        }
+    </script>
+    <footer>
+        <div class="footer-content">
+            <h3>Contact Us</h3>
+            <p>Recenessenement de logement de l'Ecole superieure national de l'informatique</p>
+            <ul class="socials" id="contact">
+                <li>
+                    <a href="#"><img src="../img/facebook.png"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../img/email.png"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../img/marquer.png"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../img/phone.png"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>COPYRIGHTS &copy; 2020 all rights reserved</p>
+        </div>
+    </footer>
+
+</body>
+
+
+
+
+<div class="modal fade" id="modale" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Voici l'etat des dossiers</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    - Attestation ayant droit
+                </div>
+                <div>
+                    - Arrete de nomination vise su conjoint
+                </div>
+                <div>
+                    - Arrete de nomination vise hors secteur MESRS (FP)
+                </div>
+                <div>
+                    - Arrete de responsabilite vise
+                </div>
+                <div>
+                    - Arrete de nomination vise
+                </div>
+                <div>
+                    - PV de la premiere installation dans le poste
+                </div>
+                <div>
+                    - Fiche familiale ou individuelle
+                </div>
+                <div>
+                    - Extrait de naissance
+                </div>
+                <div>
+                    - Fiche de renseignement Photocopie de la piece d’identite
+                </div>
+                <div>
+                    - Demande manuscrite
+                </div>
+                <div>
+                    - Photo
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+</html>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Modifier mot de passe </title>
+    <% if (message.length > 0){  %>
+        <div class="alert">
+            <%= message %>
+        </div>
+        <% } %>
+
+</head>
+
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        background-color: #F1F9EE;
+    }
+    
+    .menu-bar2 {
+        text-align: right;
+        background-color: #243E35;
+    }
+    
+    .menu-bar2 ul {
+        display: inline-flex;
+        list-style: none;
+        color: #F1F9EE;
+    }
+    
+    .menu-bar2 ul li {
+        width: 100px;
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    .menu-bar2 ul li a {
+        text-decoration: none;
+        color: #F1F9EE;
+    }
+    
+    .button {
+        background-color: #243E35;
+        border-radius: 3px;
+        padding: 6px;
+        color: #F1F9EE;
+        cursor: pointer;
+    }
+    
+    .menu-bar2 ul li:hover {
+        background: #7CA982;
+        text-align: center;
+        border-radius: 3px;
+    }
+    
+    .submenu1 {
+        display: none;
+    }
+    
+    .menu-bar2 ul li:hover .submenu1 {
+        display: block;
+        position: absolute;
+        background-color: #243E35;
+        margin-top: 10px;
+        margin-left: -50px;
+    }
+    
+    .menu-bar2 ul li:hover .submenu1 ul {
+        display: block;
+        margin: 10px;
+    }
+    
+    .menu-bar2 ul li:hover .submenu1 ul li {
+        width: 100px;
+        padding: 5px;
+        border-bottom: 1px dotted #fff;
+        background: transparent;
+        border-radius: 0;
+        text-align: left;
+    }
+    
+    .menu-bar2 ul li:hover .submenu1 ul li:last-child {
+        border-bottom: none;
+    }
+    
+    .menu-bar2 ul li:hover .submenu1 ul li a:hover {
+        color: #7CA982;
+    }
+</style>
+<header>
+    <div class="menu-bar2">
+
+    </div>
+</header>
+<script>
+    function validateForm() {
+        //collect form data in JavaScript variables
+        var pw1 = document.getElementById("pswd1").value;
+        var pw2 = document.getElementById("pswd2").value;
+        //voir si les données ne sont pas vides et bien introduites
+        if (pw1 == "") {
+            document.getElementById("message1").innerHTML = "**Vous avez oublié d'introduire un mot de passe.";
+            return false;
+        }
+        if (pw2 == "") {
+            document.getElementById("message2").innerHTML = "**Confirmez votre mot de passe. ";
+            return false;
+        }
+
+        //minimum longueur du mot de passe
+        if (pw1.length < 6) {
+            document.getElementById("message1").innerHTML = "**Le mot de passe doit depasser 6 caractères";
+            return false;
+        }
+
+        //maximum longueur du mot de passe
+        if (pw1.length > 15) {
+            document.getElementById("message1").innerHTML = "** Le mot de passe ne peut pas aller au dela de 15 caractères";
+            return false;
+        }
+        if (pw1 != pw2) {
+            document.getElementById("message2").innerHTML = "**Erreur, reconfirmez le mot de passe.";
+            return false;
+        }
+
+    }
+</script>
+
+<body>
+    <br>
+    <h2>Creation d'un nouveau compte :</h2>
+    <br>
+    <ul>
+        <form method="POST" action="/nouveaumdp" id="contact-form" onsubmit="return validateForm()">
+            <fieldset>
+                <!--Mot de passe -->
+                <td> Mot de passe* </td>
+                <input type="password" id="pswd1" value="" name="mdp">
+                <span id="message1"> </span> <br><br>
+                <!-- Confirmation -->
+                <td> Confirmation du mot de passe* </td>
+                <input type="password" id="pswd2" value="">
+                <span id="message2"> </span> <br><br>
+            </fieldset>
+            <!-- Valider -->
+            <br><br>
+            <button class="button" type="submit" value="Submit">Valider</button>
+            <!-- Redemarer -->
+            <button class="button" type="reset" value="Reset">Actualiser</button>
+            <br>
+            <a href="/profil ">Revenir au menu principale</a></h2>
+
+            <br>
+        </form>
+    </ul>
+</body>
+
+</html>

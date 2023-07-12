@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form inpu action="/recherche" method="POST">
+        <label for="recherche"></label>
+        <input type="text" name="nom" value="<%= nom %>" placeholder="Nom">
+        <input type="text" name="prenom" value="<%= prenom %>" placeholder="prenom">
+        <input type="text" name="matricule" value="<%= matricule %>" placeholder="matricule">
+        <select name="selectvalidd" id="">
+        
+        <option value="<%= selectvalid%>" name="tout"  ><%= selectvalid%></option>
+        <option value="<%= selectvalid1%>" name="valides"><%= selectvalid1%></option>
+        <option value="<%= selectvalid2%>" name="nonvalid"><%= selectvalid2%></option></select>
+        <input type="submit" value="rechercher">
+        <br>
+    </form>
+    <table class="center" border="1" cellpadding="5">
+        <tr id="header">
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Matricule</th>
+            <th>Recours</th>
+            <th>validation</th>
+            <th>Action</th>
+        </tr>
+        <tbody id="array">
+            <% table.forEach( table => { %>
+
+                <td>
+                    <%= table.Etat_Civil.nom %>
+                </td>
+                <td>
+                    <%= table.Etat_Civil.prenom %>
+                </td>
+                <td>
+                    <%= table.Etat_Civil.matricule %>
+                </td>
+                <td>
+                    <%= table.Recours.valider_recours %>
+                </td>
+                <td>
+                    <%= table.Valider %>
+                </td>
+                <td>
+                    <form method="POST" action="/param">
+                        <button>
+                                <input type="hidden" value="<%= table.id %>" name="done"><span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                             </button>
+                    </form>
+                    <form method="POST" action="/delete">
+                        <button>
+                                    <input type="hidden" value="<%= table.nom %>" name="done">
+                                    <span class="text-gradient"><i class="fas fa-times"></i></span>
+                            </button>
+                    </form>
+                </td>
+
+                </tr>
+
+                <% }) %>
+        </tbody>
+
+    </table>
+    <br>
+    <br>
+    <br>
+    <footer>
+        <div class="footer-bottom">
+            <p>COPYRIGHTS &copy; 2020 all rights reserved</p>
+        </div>
+
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+[{
+        "id": "1621611286871",
+        "nom": "said",
+        "prenom": "samah",
+        "email": "js_said@esi.dz",
+        "tel": "0565968459",
+        "mdp": "$2b$10$SqsmP/oJ9khQPa.CjTAF6..2yjAGL/vMcFeT1ZS25ITQFJOIiFl6a",
+        "profil": "Valideur"
+    },
+    {
+        "id": "1621511342069",
+        "nom": "Salem",
+        "prenom": "Raouf",
+        "email": "jr_salem@esi.dz",
+        "tel": "0596859409",
+        "mdp": "$2b$10$Y2S92yqLvpk4QBaPlM1qmenMnA2YDjZKzs17zyg3yH0YKPMzeAKZC",
+        "profil": "Admin"
+    },
+    {
+        "id": "1620726629407",
+        "nom": "boudissa",
+        "prenom": "salma",
+        "email": "js_boudissa@esi.dz",
+        "tel": "0695847389",
+        "mdp": "$2b$10$7O6Ek3mUG3H6EVxnd.y5jeaQgr/U02AonLthxI/15j9owpmNDMQUy",
+        "profil": "Editeur"
+    },
+    {
+        "id": "1620681293521",
+        "nom": "Filali",
+        "prenom": "Hasna",
+        "email": "js_filali@esi.dz",
+        "tel": "076749309",
+        "mdp": "$2b$10$bgHgr2rl8kQUZ9/VeyqBbe4zzhe6sGnhncQlqoXhN4OdUb8iZnM2q",
+        "profil": "Editeur"
+    },
+    {
+        "id": "1620595484750",
+        "nom": "mokran",
+        "prenom": "said",
+        "email": "js_mokran@esi.dz",
+        "tel": "0685748392",
+        "mdp": "$2b$10$3FCWnAJJQEPL4UjLCRI38.ESdfjbTSm5GrgrO2IiPkU5e56lfb6vy",
+        "profil": "Editeur"
+    },
+    {
+        "id": "1620545552458",
+        "nom": "kacemi",
+        "prenom": "bouchra",
+        "email": "jb_kacemi@esi.dz",
+        "tel": "0796854930",
+        "mdp": "$2b$10$Zsv6B//vfRmVmfGgSzWwy.gXeN/uli/wiKxGm/k/nWX2QlxRK4bf.",
+        "profil": "Editeur"
+    },
+    {
+        "id": "1620543385636",
+        "nom": "tina",
+        "prenom": "amriou",
+        "email": "jt_amriou@esi.dz",
+        "tel": "0778695849",
+        "mdp": "$2b$10$EkkSP/9GZrcyLaIOVIvTFOGTNgP/EPafqmX400pbZzdDspwXOxPhm",
+        "profil": "Valideur"
+    },
+    {
+        "id": "1620540009172",
+        "nom": "amriou",
+        "prenom": "ludmila",
+        "email": "jl_amriou@esi.dz",
+        "tel": "0560013977",
+        "mdp": "$2b$10$MrHSRrdncj6fZkemslFbceFnP14s3Dz.r8vEHU9LSRs0VNiZ.2GKm",
+        "profil": "Editeur"
+    },
+    {
+        "id": "1622999353861",
+        "nom": "kouider",
+        "prenom": "salim",
+        "email": "js_kouider@esi.dz",
+        "tel": "0786958478",
+        "mdp": "$2b$10$M9AojKROwU/m.Ipk2NKeI./UbX8gVGRl/yS6SN1I4kUuSLP8OwjHi",
+        "profil": "Editeur"
+    },
+    {
+        "id": "1623867890723",
+        "nom": "faten",
+        "prenom": "salim",
+        "email": "js_faten@esi.dz",
+        "tel": "0772758596",
+        "mdp": "$2b$10$.Xs5SS7cx7hHx1GfhMBpteJ.phbvL1ELV2LgaAj16E2jJjVNKtH4S",
+        "profil": "Editeur"
+    }
+]

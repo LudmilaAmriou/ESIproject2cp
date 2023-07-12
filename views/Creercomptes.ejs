@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/verification.css">
+    <title>Verification</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="undefined" crossorigin="anonymous">
+    <% if (message.length > 0){  %>
+        <div class="alert">
+            <%= message %>
+        </div>
+        <% } %>
+</head>
+
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+        height: 100vh;
+        background: linear-gradient( 135deg, #EDD2D7, #CCE6F4);
+        ;
+    }
+    
+    .FORMULAIRE {
+        display: flex;
+        height: 120vh;
+        padding: 10px;
+        padding-top: 90px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container {
+        max-width: 1100px;
+        width: 100%;
+        background: #fff;
+        padding: 25px 30px;
+        border-radius: 5px;
+    }
+    
+    .container .title {
+        background: white;
+        text-align: center;
+        font-size: 45px;
+        font-weight: 300;
+        position: relative;
+    }
+    
+    .container .title::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        height: 1px;
+        width: 387px;
+        background: linear-gradient( 135deg, #D62839, #CCE6F4);
+    }
+    
+    .container form .user-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0 12px 0;
+    }
+    
+    form .select {
+        padding: 1.2rem;
+        border-width: 1px;
+        border-radius: 6px;
+        width: 100%;
+        display: flex;
+        border-color: #3c3334;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.1rem;
+        cursor: pointer;
+    }
+    
+    form .user-details .input-box {
+        margin-bottom: 15px;
+        width: calc(100% / 2 - 20px);
+    }
+    
+    .user-details .input-box .user-details {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+    
+    .user-details .input-box .message {
+        color: #D62839;
+        font-weight: bold;
+    }
+    
+    .user-details .input-box input {
+        height: 45px;
+        width: 100%;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding-left: 15px;
+        font-size: 16px;
+        border-bottom-width: 3px;
+        transition: all 0.3s ease;
+    }
+    
+    .user-details .input-box input:focus,
+    .user-details .input-box input:valid {
+        border-color: #4BA3C3;
+    }
+    
+    form .button {
+        height: 45px;
+        margin: 45px 0;
+    }
+    
+    form .button input {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        color: white;
+        background: #4BA3C3;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+    
+    .input-box .yoho img {
+        height: 20px;
+        cursor: pointer;
+        vertical-align: middle;
+    }
+    
+    form .button input:hover {
+        background: #175676;
+    }
+    
+    @media (max-width:584px) {
+        .container {
+            max-width: 100%;
+        }
+        form .user-details .input-box {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+    }
+    
+    label {
+        color: black;
+        font-size: 20px;
+        font-weight: 100;
+    }
+    
+    .menu-bar2 img {
+        width: 45px;
+        height: 30px;
+        float: left;
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+    
+    .menu-bar2 {
+        height: 70px;
+        width: 100%;
+        background-color: #175676;
+    }
+    
+    .menu-bar2 ul {
+        float: right;
+        margin-right: 10px;
+    }
+    
+    .menu-bar2 ul li {
+        display: inline-block;
+        line-height: 70px;
+        margin: 0 5px;
+    }
+    
+    .menu-bar2 ul li a {
+        color: white;
+        font-size: 15px;
+        text-decoration: none;
+        padding: 7px 13px;
+        border-radius: 1px;
+    }
+    
+    .menu-bar2 ul li a:hover {
+        background: #4BA3C3;
+        border-radius: 6px;
+        text-align: center;
+        transition: .5s;
+    }
+    
+    footer {
+        position: absolute;
+        background-color: #175676;
+        height: auto;
+        width: 100vw;
+        font-family: "Open sans";
+        padding-top: 40px;
+        color: white;
+    }
+    
+    .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-content p {
+        max-width: 400px;
+        margin: 10px auto;
+        line-height: 20px;
+        font-size: 14px;
+    }
+    
+    .footer-content h3 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-transform: capitalize;
+        line-height: 3rem;
+    }
+    
+    .socials {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem 0 3rem 0;
+    }
+    
+    .socials li {
+        margin: 0 10px;
+    }
+    
+    .socials a {
+        text-decoration: none;
+        color: white;
+    }
+    
+    .socials a img {
+        font-size: 1.1rem;
+    }
+    
+    .footer-bottom {
+        width: 100vw;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .footer-bottom p {
+        font-size: 14px;
+        word-spacing: 2px;
+        text-transform: capitalize;
+    }
+    
+    footer img {
+        width: 50px;
+        height: 50px;
+    }
+</style>
+
+
+
+
+
+<script>
+    function validateForm() {
+        //Collecter infos
+        var pw1 = document.getElementById("pswd1").value;
+        var pw2 = document.getElementById("pswd2").value;
+
+        //voir si les données ne sont pas vides et bien introduites
+
+        //minimum longueur du mot de passe
+        if (pw1.length < 6) {
+            document.getElementById("message1").innerHTML = "Le mot de passe doit depasser 8 caractères !";
+            return false;
+        }
+
+        //maximum longueur du mot de passe
+        if (pw1.length > 15) {
+            document.getElementById("message1").innerHTML = "Le mot de passe ne peut pas aller au dela de 15 caractères !";
+            return false;
+        }
+        if (pw1 != pw2) {
+            document.getElementById("message2").innerHTML = "Erreur, reconfirmez le mot de passe !";
+            return false;
+        }
+
+    }
+    e = true;
+    a = true;
+
+    function changer() {
+        if (e) {
+            document.getElementById('pswd1').setAttribute("type", "text");
+            document.getElementById('eye').src = "../img/eye.png";
+            e = false;
+        } else {
+            document.getElementById("pswd1").setAttribute("type", "password");
+            document.getElementById('eye').src = "../img/eye2.png";
+            e = true;
+        }
+    }
+
+    function changer2() {
+        if (a) {
+            document.getElementById('pswd2').setAttribute("type", "text");
+            document.getElementById('eye2').src = "../img/eye.png";
+            a = false;
+        } else {
+            document.getElementById("pswd2").setAttribute("type", "password");
+            document.getElementById('eye2').src = "../img/eye2.png";
+            a = true;
+        }
+    }
+</script>
+
+<body>
+
+    <header>
+        <div class="menu-bar2" id="click">
+            <img src="../img/whitelogo.png" alt="logo">
+            <ul>
+                <li><a href="http://127.0.0.1:3000/profil">Accueil</a></li>
+                <li><a href="#">A propos</a></li>
+                <li><a href="#">Mon profile</a></li>
+
+            </ul>
+        </div>
+    </header>
+    <!--FOMULAIRE-->
+
+    <div class="FORMULAIRE">
+
+
+        <div class="container">
+            <form method="POST" action="/comptes" id="contact-form" onsubmit="return validateForm()">
+                <div class="title">
+                    Créer un compte
+                </div>
+                <div class="user-details">
+
+                    <div class="input-box">
+                        <span class="details">Nom</span>
+                        <input type="text" placeholder="Entrer le nom" name="nom" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Prénom</span>
+                        <input type="text" placeholder="Entrer le prénom" name="prenom" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Date de naissance </span>
+                        <input type="date" name="date de naissance" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="email" placeholder="Adresse-mail" name="email" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Mot de passe</span>
+                        <div class="yoho">
+                            <input type="password" placeholder="Entrer le mot de passe" id="pswd1" name="mdp" required>
+                            <img src="../img/eye2.png" id="eye" onclick="changer()">
+                        </div>
+                        <span class="message" id="message1"> </span>
+
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Confirmer mot de passe</span>
+                        <div class="yoho">
+                            <input type="password" placeholder="Entrer le mot de passe une autre fois" id="pswd2" name="Password" required>
+                            <img src="../img/eye2.png" id="eye2" onclick="changer2()">
+                        </div>
+                        <span class="message" id="message2"> </span>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Numéro de telephone</span>
+                        <input type="tel" placeholder="Entrer le numéro de telephone" name="tel" required>
+                    </div>
+                </div>
+
+                <span class="details">Profile </span>
+                <select class="select" name="profil" required>
+                    <option value="Valideur">Valideur</option>
+                    <option value="Editeur">Editeur</option>
+                </select>
+                <div class="button">
+                    <input type="submit" value="Créer compte">
+                </div>
+
+        </div>
+
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <footer>
+        <div class="footer-content">
+            <h3>Contact Us</h3>
+            <p>Recenessenement de logement de l'Ecole superieure national de l'informatique</p>
+            <ul class="socials" id="contact">
+                <li>
+                    <a href="#"><img src="../img/facebook.png"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../img/email.png"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../img/marquer.png"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../img/phone.png"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>COPYRIGHTS &copy; 2020 all rights reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,481 @@
+<html>
+
+<head>
+
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <title>Liste recours</title>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width" , initia-scale=1>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    html {
+        font-size: 10px;
+        font-family: "Roboto", sans-serif;
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        background-color: #cce6f4;
+    }
+    
+    header {
+        background-color: #175676;
+    }
+    
+    .form {
+        padding: 6px;
+        border: none;
+        margin-top: 8px;
+        margin-right: 16px;
+        font-size: 17px;
+        display: inline-block;
+    }
+    
+    .menu {
+        text-align: center;
+        padding: 50px;
+        margin: 5px;
+    }
+    
+    h1 {
+        color: #175676;
+    }
+    
+    .menu h1 {
+        font-size: 20px;
+        color: #175676;
+    }
+    
+    .section {
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        justify-content: center;
+        grid-gap: 1rem;
+    }
+    
+    li,
+    a,
+    button {
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: white;
+        text-decoration: none;
+    }
+    
+    img {
+        width: 50px;
+        height: 40px;
+        margin: 15px;
+        vertical-align: middle;
+    }
+    
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 5%;
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100vw;
+    }
+    
+    header nav img {
+        width: 10px;
+        height: 10px;
+        margin: 0;
+    }
+    
+    nav ul li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .logo {
+        cursor: pointer;
+        margin-right: 150px;
+        margin-left: 25px;
+    }
+    
+    .nav-links {
+        list-style: none;
+    }
+    
+    .nav-links li {
+        display: inline-block;
+        padding: 10px 10px;
+    }
+    
+    .nav-links li a {
+        transition: all 0.3s ease 0s;
+        color: #cce6f4;
+    }
+    
+    .nav-links li a:hover {
+        color: white;
+    }
+    
+    .submenu1 {
+        display: none;
+    }
+    
+    .nav-links li:hover .submenu1 {
+        display: block;
+        position: absolute;
+        background-color: #4BA3C3;
+        margin-top: 10px;
+        margin-left: -50px;
+    }
+    
+    .nav-links li:hover .submenu1 ul {
+        display: block;
+        margin: 10px;
+    }
+    
+    .nav-links li:hover .submenu1 ul li {
+        width: 100px;
+        padding: 5px;
+        border-bottom: 1px dotted #fff;
+        background: transparent;
+        border-radius: 0;
+        text-align: left;
+    }
+    
+    .nav-links li:hover .submenu1 ul li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links li:hover .submenu1 ul li a:hover {
+        color: #175676;
+    }
+    
+    button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        margin: 8px;
+        background-color: #4BA3C3;
+        border: transparent;
+        border-radius: 50px;
+        cursor: pointer;
+        transform: all 0.3s ease 0s;
+    }
+    
+    button:hover {
+        background-color: #175676;
+    }
+    
+    footer {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #175676;
+        height: auto;
+        width: 100vw;
+        color: white;
+    }
+    
+    .footer-bottom {
+        width: 100vw;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .footer-bottom p {
+        font-size: 14px;
+        word-spacing: 2px;
+        text-transform: capitalize;
+    }
+    
+    @media only screen and (min-width: 1000px) {
+        header {
+            padding: 0px 10%;
+        }
+        header nav img {
+            width: 20px;
+            height: 20px;
+            margin: 5px;
+        }
+        .logo {
+            margin-right: 300px;
+            margin-left: 50px;
+        }
+        .nav-links li {
+            padding: 20px 40px;
+        }
+    }
+    
+    form input {
+        background-color: white;
+        border: none;
+    }
+    
+    table {
+        position: center;
+        width: 900px;
+        border-collapse: collapse;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 20pt;
+    }
+    
+    .newuser {
+        color: #175676;
+        padding-left: 180px;
+        padding-top: 10px;
+    }
+    
+    table.center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    th,
+    td {
+        padding: 15px;
+        background-color: #9cc7f0;
+        color: #362c03;
+    }
+    
+    th {
+        text-align: left;
+    }
+    
+    legend {
+        text-align: center;
+        color: #175676;
+        margin: 10px;
+        font-size: 12px;
+        border-bottom: #175676 solid 3px;
+    }
+    
+    #modifier {
+        width: 35px;
+        height: 35px;
+    }
+    
+    #delete {
+        font-size: large;
+        padding: 0.5em 1em;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .modal-container {
+        z-index: 9999;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .modal-open {
+        display: flex;
+    }
+    
+    .modal {
+        max-width: 700px;
+        max-height: 400px;
+        background-color: white;
+        border-radius: 3px;
+    }
+    
+    .modal-button {
+        text-transform: uppercase;
+        padding: 0.5em 1em;
+        border: none;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 3px;
+        margin-left: 0.5em;
+    }
+    
+    .modal-confirm-button {
+        background-color: rgb(248, 37, 0);
+    }
+    
+    .modal-header {
+        background-color: #4BA3C3;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .modal-header h2 {
+        margin: 1em;
+    }
+    
+    .modal-header span {
+        padding-right: 0.3em;
+        cursor: default;
+        font-size: 30px;
+        align-self: flex-end;
+    }
+    
+    .modal-content {
+        padding: 1em;
+        flex-grow: 1;
+    }
+    
+    .modal-footer {
+        padding: 1em;
+        background-color: rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .close-button {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+</style>
+<script>
+    function onDelete() {
+        let confirmation = document.getElementById("confirmation");
+        if (!confirmation.classList.contains("modal-open")) {
+            confirmation.classList.add("modal-open");
+        }
+    }
+
+    function onCancel() {
+        let confirmation = document.getElementById("confirmation");
+        confirmation.classList.remove("modal-open");
+    }
+
+    function onConfirm() {
+        onCancel();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document
+            .getElementById("confirmation")
+            .addEventListener("click", onCancel);
+        document
+            .querySelector(".modal")
+            .addEventListener("click", (e) => e.stopPropagation());
+    });
+</script>
+
+<body>
+
+    <header>
+        <img src="../img/whitelogo.png" class="logo">
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="http://127.0.0.1:3000/profil"> <img src="../img/home.png"> Accueil</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/phone.png"> A propos</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/whiteprofile.png" alt=""> Mon profile</a>
+                    <div class="submenu1">
+                        <ul>
+                            <li><a href="#">Deconnexion</a></li>
+                            <li><a href="#">Parametres</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <br>
+    <br>
+    <legend>
+        <center>
+            <h1> Liste des profiles </h1>
+        </center>
+    </legend>
+
+    <br>
+    <br>
+    <a class="newuser" href="/comptes"><i class='fas fa-user-plus' style='font-size:20px;color:#175676'></i>
+            Ajouter un utilisateur</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="form">
+        <form class="form" action="/recherche" method="POST">
+            <label for="recherche "></label>
+            <input class="form" type="text" name="nom" value="<%=nom%>" placeholder="Nom">
+            <input class="form" type="text" name="prenom" value="<%=prenom%>" placeholder="prenom">
+            <select class="form" name="selectvalidd" id=""> 
+            <option value="<%=selectvalid%>" name="tout"><%=selectvalid%></option>
+            <option value="<%=selectvalid1%>" name="Editeur"><%=selectvalid1%></option>
+            <option value="<%=selectvalid2%>" name="Valideur"><%=selectvalid2%></option></select>
+            <input class="form" type="submit" value="rechercher">
+        </form>
+    </div>
+    <table class="center" border="1" cellpadding="5">
+        <tr id="header">
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        <tbody id="array">
+            <% table.forEach( table => { %>
+
+                <td>
+                    <%= table.nom %>
+                </td>
+                <td>
+                    <%= table.prenom %>
+                </td>
+                <td>
+                    <%= table.email %>
+                </td>
+                <td>
+                    <form method="POST" action="/users">
+                        <button id="modifier">
+                                    <input type="hidden" value="<%= table.id %>" name="done"><span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                 </button>
+                    </form>
+                    <form method="POST" action="/delete">
+                        <button id="delete" name="delete"><span class="text-gradient"><i class="fas fa-times"></i></span></button>
+                        <input type="hidden" value="<%= table.nom %>" name="done">
+                    </form>
+
+                </td>
+
+                </tr>
+
+                <% }) %>
+        </tbody>
+
+    </table>
+    <br>
+    <br>
+    <br>
+    <footer>
+        <div class="footer-bottom">
+            <p>COPYRIGHTS &copy; 2020 all rights reserved</p>
+        </div>
+
+    </footer>
+</body>
+
+</html>

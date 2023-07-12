@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/jpg" href="../img/lo.jpg">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Menu editeur</title>
+</head>
+
+<body>
+    <style>
+        @charset "utf-8";
+        /* CSS Document */
+        
+        body {
+            background: url(../img/back.png);
+            margin: 0px;
+            padding: 0px;
+            background-color: white;
+            font-family: calibri;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .services {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        .s-heading {
+            text-align: center;
+        }
+        
+        .s-heading h1 {
+            color: #576975;
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin: 0px;
+        }
+        
+        .s-heading p {
+            color: rgba(87, 105, 117, 0.60);
+            font-size: 1rem;
+            margin: 5px;
+            text-align: center;
+        }
+        
+        .s-box-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .s-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            width: 300px;
+            padding: 20px 25px;
+            height: 300px;
+            box-sizing: border-box;
+            margin: 30px;
+            position: relative;
+        }
+        
+        .s-box img {
+            height: 75px;
+        }
+        
+        .s-box h1 {
+            color: #576975;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+        
+        .s-box p {
+            color: rgba(87, 105, 117, 0.90);
+            text-align: center;
+        }
+        
+        .s-btn {
+            width: 140px;
+            height: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(74, 144, 226, 0.50);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #576975;
+            margin-top: 10px;
+        }
+        
+        .bar {
+            width: 100px;
+            height: 6px;
+            position: absolute;
+            left: 50%;
+            top: 0%;
+            transform: translateX(-50%);
+            background-color: #D62839;
+            border-radius: 0px 0px 10px 10px;
+            display: none;
+            animation: bar 0.5s;
+        }
+        
+        .s-box:hover {
+            box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.08);
+            transition: all ease 0.3s;
+        }
+        
+        .s-btn:hover {
+            background-color: #4a90e2;
+            border: 1px solid #4a90e2;
+            color: #FFFFFF;
+            transition: all ease 0.3s;
+        }
+        
+        .s-box:hover .bar {
+            display: block;
+        }
+        
+        .menu-bar2 img {
+            width: 45px;
+            height: 30px;
+            float: left;
+            margin-top: 15px;
+            margin-left: 20px;
+        }
+        
+        .menu-bar2 {
+            height: 70px;
+            width: 100%;
+        }
+        
+        .menu-bar2 ul {
+            float: right;
+            margin-right: 10px;
+        }
+        
+        .menu-bar2 ul li {
+            display: inline-block;
+            line-height: 70px;
+            margin: 0 5px;
+        }
+        
+        .menu-bar2 ul li form button {
+            text-decoration: none;
+            background: transparent;
+            color: white;
+            border: transparent;
+            padding: 1px 1px;
+        }
+        
+        .menu-bar2 ul li form button:hover {
+            color: #D62839;
+            text-align: center;
+            transition: .5s;
+            border-radius: 6px;
+        }
+        
+        .menu-bar2 ul li a {
+            color: white;
+            font-size: 15px;
+            text-decoration: none;
+            padding: 7px 13px;
+            border-radius: 1px;
+        }
+        
+        .menu-bar2 ul li a:hover {
+            background: #D62839;
+            border-radius: 6px;
+            text-align: center;
+            transition: .5s;
+        }
+        
+        @keyframes bar {
+            0% {
+                width: 0px;
+            }
+            100% {
+                width: 100px;
+            }
+        }
+        
+        @media(max-width:1050px) {
+            .s-box-container {
+                flex-wrap: wrap;
+            }
+            .services {
+                height: auto;
+            }
+            .s-heading {
+                margin: 15px;
+            }
+            .s-box {
+                flex-grow: 1;
+            }
+        }
+    </style>
+
+
+    <header>
+        <div class="menu-bar2" id="click">
+            <img src="../img/logo.png" alt="logo">
+            <ul>
+                <li><a href="http://127.0.0.1:3000/profil">   Accueil</a></li>
+                <li><a href="#">  A propos</a></li>
+                <li><a href="#">  Mon profil</a></li>
+                <li>
+                    <form action="/logout?_method=DELETE" method="POST">
+                        <button type="submit">Deconnexion</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <body>
+        <br>
+        <section class=" services ">
+            <div class="s-heading ">
+                <h1>M
+                    <font color="#4BA3C3 ">en</font>u</h1>
+                <p>Veuillez choisir l'une des options suivantes</p>
+            </div>
+            <div class="s-box-container ">
+
+                <div class="s-box ">
+                    <div class="bar "></div>
+                    <img alt="1 " src="../img/blackverify.png " />
+                    <h1>Verifier</h1>
+
+                    <p>Verifier l'etat des dossiers des demmandeurs.</p>
+
+                    <a class="s-btn " href="http://127.0.0.1:3000/verifier ">ICI</a>
+                </div>
+
+                <div class="s-box ">
+
+                    <div class="bar "></div>
+
+                    <img alt="2 " src="../img/blackcv.png " />
+
+                    <h1>Saisir</h1>
+
+                    <p>Saisie les informations des demandeurs.</p>
+
+                    <a class="s-btn " href="http://127.0.0.1:3000/saisie ">ICI</a>
+                </div>
+
+
+            </div>
+
+
+    </body>
+
+</html>

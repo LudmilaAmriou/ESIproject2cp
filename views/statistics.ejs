@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- <script src="https://cdn.zingchart.com/zingchart.min.js"></script> -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        width: 600px;
+        padding-left: 20px;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    html {
+        font-size: 10px;
+        font-family: "Roboto", sans-serif;
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        background-color: #cce6f4;
+    }
+    
+    header {
+        background-color: #175676;
+    }
+    
+    .menu {
+        text-align: center;
+        padding: 50px;
+        margin: 5px;
+    }
+    
+    .menu h1 {
+        font-size: 20px;
+        color: #D62839;
+    }
+    
+    .section {
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        justify-content: center;
+        grid-gap: 1rem;
+    }
+    
+    li,
+    a,
+    button {
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: white;
+        text-decoration: none;
+    }
+    
+    img {
+        width: 50px;
+        height: 40px;
+        margin: 15px;
+        vertical-align: middle;
+    }
+    
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 5%;
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100vw;
+    }
+    
+    header nav img {
+        width: 10px;
+        height: 10px;
+        margin: 0;
+    }
+    
+    nav ul li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .logo {
+        cursor: pointer;
+        margin-right: 150px;
+        margin-left: 25px;
+    }
+    
+    .nav-links {
+        list-style: none;
+    }
+    
+    .nav-links li {
+        display: inline-block;
+        padding: 10px 10px;
+    }
+    
+    .nav-links li a {
+        transition: all 0.3s ease 0s;
+        color: #cce6f4;
+    }
+    
+    .nav-links li a:hover {
+        color: white;
+    }
+    
+    .submenu1 {
+        display: none;
+    }
+    
+    .nav-links li:hover .submenu1 {
+        display: block;
+        position: absolute;
+        background-color: #4BA3C3;
+        margin-top: 10px;
+        margin-left: -50px;
+    }
+    
+    .nav-links li:hover .submenu1 ul {
+        display: block;
+        margin: 10px;
+    }
+    
+    .nav-links li:hover .submenu1 ul li {
+        width: 100px;
+        padding: 5px;
+        border-bottom: 1px dotted #fff;
+        background: transparent;
+        border-radius: 0;
+        text-align: left;
+    }
+    
+    .nav-links li:hover .submenu1 ul li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links li:hover .submenu1 ul li a:hover {
+        color: #175676;
+    }
+    
+    button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        margin: 8px;
+        background-color: #4BA3C3;
+        border: transparent;
+        border-radius: 50px;
+        cursor: pointer;
+        transform: all 0.3s ease 0s;
+    }
+    
+    button:hover {
+        background-color: #175676;
+    }
+    
+    footer {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #175676;
+        height: auto;
+        width: 100vw;
+        color: white;
+    }
+    
+    .footer-bottom {
+        width: 100vw;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .footer-bottom p {
+        font-size: 14px;
+        word-spacing: 2px;
+        text-transform: capitalize;
+    }
+    
+    @media only screen and (min-width: 10000px) {
+        header {
+            padding: 0px 10%;
+        }
+        header nav img {
+            width: 20px;
+            height: 20px;
+            margin: 5px;
+        }
+        .logo {
+            margin-right: 300px;
+            margin-left: 50px;
+        }
+        .nav-links li {
+            padding: 20px 40px;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <img src="../img/whitelogo.png" class="logo">
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="#"> <img src="../img/home.png"> Accueil</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/phone.png"> A propos</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/whiteprofile.png" alt=""> Mon profile</a>
+                    <div class="submenu1">
+                        <ul>
+                            <li><a href="#">Deconnexion</a></li>
+                            <li><a href="#">Parametres</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <nav>
+        2021
+    </nav>
+    <div class="container">
+        <h1>Selon les dossiers complets<button onclick="updateChart()">Update</button></h1>
+        <canvas id="myChart">Selon les dossiers complets</canvas>
+        <h1>Selon le sexe</h1>
+        <canvas id="Chart">Selon le sexe</canvas>
+        <h1>Selon le sexe 2</h1>
+        <span><canvas id="Charts">Selon le sexe</canvas></span>
+        <h1>Selon la validation</h1>
+        <canvas id="Charte"></canvas>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <script>
+        var jsonfile = [{
+            "Etat_Civil": {
+                "matricule": "12",
+                "Numerodossier": "1",
+                "nom": "lud",
+                "prenom": "bila",
+                "dateNaissance": "2002-12-13",
+                "communeNaissance": "",
+                "wilaya": "01. Adrar",
+                "choixSexe": "Femme",
+                "Adresse": "",
+                "NumeroTel": "",
+                "email": "jl_amriou@esi.dz",
+                "codePostal": "",
+                "prenomPere": "",
+                "nomMere": "",
+                "prenomMere": "",
+                "situation": "Celibataire",
+                "nbEnfants": ""
+            },
+            "Experience_Professionnellle": {
+                "ecole": "",
+                "DireSer": "",
+                "Grade": "",
+                "dateDins": "",
+                "dateFins": "",
+                "dateDhors": "",
+                "dateFhors": "",
+                "res": ""
+            },
+            "Conjoint": {
+                "nom": "",
+                "prenom": "",
+                "dateNaissance": "",
+                "communeNaissance": "",
+                "wilaya": "01. Adrar",
+                "prenomPere": "",
+                "nomMere": "",
+                "prenomMere": "",
+                "choixMesrs": "Oui"
+            },
+            "Droits": {
+                "moudjahid": "Oui",
+                "chahid": "Oui",
+                "chahid2": "Oui"
+            },
+            "Recours": {
+                "cause": {},
+                "valider_recours": false,
+                "date": {}
+            },
+            "Valider": "en cour",
+            "Dossier_Complet": false,
+            "nombrepoints": 10
+        }, {
+            "Etat_Civil": {
+                "matricule": "ajout",
+                "Numerodossier": "1",
+                "nom": "Filali",
+                "prenom": "Hasna",
+                "dateNaissance": "2021-04-28",
+                "communeNaissance": "Algeria",
+                "wilaya": "01. Adrar",
+                "choixSexe": "Femme",
+                "Adresse": "Building number three Zemmouri, Boumerdes",
+                "NumeroTel": "076749309",
+                "email": "js_filali@esi.dz",
+                "codePostal": "1212",
+                "prenomPere": "Hasna",
+                "nomMere": "salamo",
+                "prenomMere": "Farida",
+                "situation": "Celibataire",
+                "nbEnfants": "7"
+            },
+            "Experience_Professionnellle": {
+                "ecole": "esi",
+                "DireSer": "direction",
+                "Grade": "ii",
+                "dateDins": "2021-04-29",
+                "dateFins": "2021-04-27",
+                "dateDhors": "2021-05-07",
+                "dateFhors": "2021-05-10",
+                "res": "walo tani"
+            },
+            "Conjoint": {
+                "nom": "salamo",
+                "prenom": "Hasna",
+                "dateNaissance": "2021-05-21",
+                "communeNaissance": "Algeria",
+                "wilaya": "01. Adrar",
+                "prenomPere": "Hasna",
+                "nomMere": "kk",
+                "prenomMere": "halahalal",
+                "choixMesrs": "Oui"
+            },
+            "Droits": {
+                "moudjahid": "Oui",
+                "chahid": "Oui",
+                "chahid2": "Oui"
+            },
+            "Recours": {
+                "cause": {},
+                "valider_recours": false,
+                "date": {}
+            },
+            "Valider": "validé",
+            "Dossier_Complet": true,
+            "nombrepoints": 1
+        }, {
+            "Etat_Civil": {
+                "matricule": "o000o",
+                "Numerodossier": "2",
+                "nom": "baha",
+                "prenom": "Meriem",
+                "dateNaissance": "",
+                "communeNaissance": "Algeria",
+                "wilaya": "18. jijel",
+                "choixSexe": "femme",
+                "Adresse": "Building number three Zemmouri, Boumerdes",
+                "NumeroTel": "076749309",
+                "email": "jm_baha@esi.dz",
+                "codePostal": "1552",
+                "prenomPere": "",
+                "nomMere": "",
+                "prenomMere": "",
+                "situation": "en couple",
+                "nbEnfants": ""
+            },
+            "Experience_Professionnellle": {
+                "ecole": "",
+                "DireSer": "",
+                "Grade": "",
+                "dateDins": "",
+                "dateFins": "",
+                "dateDhors": "",
+                "dateFhors": "",
+                "res": ""
+            },
+            "Conjoint": {
+                "nom": "",
+                "prenom": "",
+                "dateNaissance": "",
+                "communeNaissance": "",
+                "wilaya": "01. Adrar",
+                "prenomPere": "",
+                "nomMere": "",
+                "prenomMere": "",
+                "choixMesrs": "Oui"
+            },
+            "Droits": {
+                "moudjahid": "Oui",
+                "chahid": "Oui",
+                "chahid2": "Non"
+            },
+            "Recours": {
+                "cause": {},
+                "valider_recours": true,
+                "date": {}
+            },
+            "Valider": "refusé",
+            "Dossier_Complet": false,
+            "nombrepoints": 33
+        }, {
+            "Etat_Civil": {
+                "matricule": "12",
+                "Numerodossier": "1",
+                "nom": "lud",
+                "prenom": "bila",
+                "dateNaissance": "2002-12-13",
+                "communeNaissance": "",
+                "wilaya": "01. Adrar",
+                "choixSexe": "Femme",
+                "Adresse": "",
+                "NumeroTel": "",
+                "email": "jl_amriou@esi.dz",
+                "codePostal": "",
+                "prenomPere": "",
+                "nomMere": "",
+                "prenomMere": "",
+                "situation": "Celibataire",
+                "nbEnfants": ""
+            },
+            "Experience_Professionnellle": {
+                "ecole": "",
+                "DireSer": "",
+                "Grade": "",
+                "dateDins": "",
+                "dateFins": "",
+                "dateDhors": "",
+                "dateFhors": "",
+                "res": ""
+            },
+            "Conjoint": {
+                "nom": "",
+                "prenom": "",
+                "dateNaissance": "",
+                "communeNaissance": "",
+                "wilaya": "01. Adrar",
+                "prenomPere": "",
+                "nomMere": "",
+                "prenomMere": "",
+                "choixMesrs": "Oui"
+            },
+            "Droits": {
+                "moudjahid": "Oui",
+                "chahid": "Oui",
+                "chahid2": "Oui"
+            },
+            "Recours": {
+                "cause": {},
+                "valider_recours": false,
+                "date": {}
+            },
+            "Valider": "en cour",
+            "Dossier_Complet": false,
+            "nombrepoints": 23
+        }];
+        //premiere CHARTE============================================================================================================================
+        var ctx = document.getElementById("myChart").getContext('2d');
+        const labels2 = ["complets", "incomplets"];
+        const data = {
+            labels: labels2,
+            datasets: [{
+                label: 'Dossiers Complets',
+                data: [recherchecomplet(jsonfile).length, jsonfile.length - recherchecomplet(jsonfile).length],
+                backgroundColor: [
+                    'rgba(34, 150, 240, 0.2)',
+                    'rgba(255, 150, 240, 0.2)'
+                ],
+                borderWidth: 1
+            }]
+        };
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+        };
+        var myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+
+        function recherchecomplet(data) {
+            var tab = new Array();
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].Dossier_Complet === true) {
+
+                    tab.push(data[i])
+                }
+            }
+            return tab;
+        }
+        //DEUXIEME CHARTE=============================================================================================================================
+        function nombrehomme(data) {
+            var j = 0;
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].Etat_Civil.choixSexe === "Homme") {
+                    j = j + 1;
+                }
+            }
+            return j;
+        }
+        var ctx2 = document.getElementById("Chart").getContext('2d');
+        const data2 = {
+            labels: [
+                'Homme',
+                'Femme'
+            ],
+            datasets: [{
+                label: 'Selon le sexe',
+                data: [nombrehomme(jsonfile), jsonfile.length - nombrehomme(jsonfile)],
+                backgroundColor: [
+                    'rgba(34, 150, 240, 0.2)',
+                    'rgba(255, 150, 240, 0.2)'
+                ],
+                hoverOffset: 4
+            }]
+        };
+        const config2 = {
+            type: 'doughnut',
+            data: data2,
+        };
+        var Chartd = new Chart(
+            document.getElementById('Chart'),
+            config2
+        );
+        //Troisième graphique
+        var ctx3 = document.getElementById("Charts").getContext('2d');
+        const data3 = {
+            labels: [
+                'Homme',
+                'Femme'
+            ],
+            datasets: [{
+                label: 'Selon le sexe',
+                data: [nombrehomme(jsonfile), jsonfile.length - nombrehomme(jsonfile)],
+                backgroundColor: [
+                    'rgba(34, 150, 240, 0.2)',
+                    'rgba(255, 150, 240, 0.2)'
+                ],
+                hoverOffset: 4
+            }]
+        };
+        const config3 = {
+            type: 'pie',
+            data: data3,
+        };
+        let Charts = new Chart(
+            document.getElementById('Charts'),
+            config3
+        );
+        //=============================================================================================================================
+        var ctx3 = document.getElementById("Charte").getContext('2d');
+        const data4 = {
+            labels: [
+                'validés',
+                'En cours',
+                'Non validés'
+            ],
+            datasets: [{
+                label: 'Selon la validation',
+                data: [nbrdossiersvalides(jsonfile), nbrdossiersencoursdevalidation(jsonfile), jsonfile.length - nbrdossiersencoursdevalidation(jsonfile) - nbrdossiersvalides(jsonfile)],
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'orange',
+                    'rgb(75, 192, 192)'
+                ],
+                hoverOffset: 4
+            }]
+        };
+        const config4 = {
+            type: 'pie',
+            data: data4,
+        };
+        let Charte = new Chart(
+            document.getElementById('Charte'),
+            config4
+        );
+
+        function nbrdossiersvalides(data) {
+            var j = 0;
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].Valider === "validé") {
+                    j = j + 1;
+                }
+            }
+            return j;
+        }
+
+        function nbrdossiersencoursdevalidation(data) {
+            var j = 0;
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].Valider === "en cour") {
+                    j = j + 1;
+                }
+            }
+            console.log(j)
+            return j;
+        }
+    </script>
+    <br>
+    <br>
+    <br>
+    <footer>
+        <div class="footer-bottom">
+            <p>COPYRIGHTS &copy; 2020 all rights reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>

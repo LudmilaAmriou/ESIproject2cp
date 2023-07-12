@@ -1,0 +1,43 @@
+{
+    "name": "project",
+    "version": "1.0.0",
+    "description": "project ",
+    "main": "fichier.js",
+    "dependencies": {
+        "-": "0.0.1",
+        "@aws-sdk/client-ses": "^3.18.0",
+        "bcrypt": "^5.0.1",
+        "body-parser": "^1.19.0",
+        "bootstrap": "^5.0.0-beta3",
+        "chart.js": "^3.4.0",
+        "connect-flash": "^0.1.1",
+        "csv": "^5.5.0",
+        "dotenv": "^9.0.2",
+        "ejs": "^3.1.6",
+        "emailjs": "^3.4.0",
+        "express": "^4.17.1",
+        "express-flash": "0.0.2",
+        "express-flash-messages": "^0.1.1",
+        "express-session": "^1.17.1",
+        "express-validator": "^6.10.1",
+        "method-override": "^3.0.0",
+        "morgan": "^1.10.0",
+        "nodemailer": "^6.6.0",
+        "nodemon": "^2.0.9",
+        "npm-run-all": "^4.1.5",
+        "passport": "^0.4.1",
+        "passport-local": "^1.0.0",
+        "save": "^2.4.0",
+        "table-scraper": "^1.0.3",
+        "tailwindcss": "^2.1.2",
+        "winston": "^3.1.0",
+        "winston-daily-rotate-file": "^3.5.1"
+    },
+    "scripts": {
+        "init": "node init.js",
+        "login": "node login.js",
+        "start": "npm-run-all --parallel login"
+    },
+    "author": "",
+    "license": "ISC"
+}

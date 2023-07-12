@@ -1,0 +1,71 @@
+[
+  {
+    "Etat_Civil": {
+      "matricule": "1320020131",
+      "Numerodossier": "12",
+      "nom": "amriou",
+      "prenom": "benmensour",
+      "dateNaissance": "2003-01-13",
+      "communeNaissance": "looool",
+      "wilaya": "01. Adrar",
+      "choixSexe": "Homme ",
+      "Adresse": "Bouira la ville",
+      "NumeroTel": "0775549043",
+      "email": "jh_benmensour@esi.dz",
+      "codePostal": "434563",
+      "prenomPere": "ludmila",
+      "nomMere": "amriou",
+      "prenomMere": "BOUCHIRA",
+      "situation": "Veuf(ve) ",
+      "nbEnfants": "2"
+    },
+    "Experience_Professionnellle": {
+      "ecole": "ESI",
+      "DireSer": "LOL",
+      "Grade": "11",
+      "dateDins": "2000-06-12",
+      "dateFins": "2002-12-13",
+      "dateDhors": "2012-12-12",
+      "dateFhors": "2004-12-19"
+    },
+    "Conjoint": {
+      "nom": "amriou",
+      "prenom": "ludmila",
+      "dateNaissance": "2005-04-13",
+      "communeNaissance": "looool",
+      "wilaya": "01. Adrar",
+      "prenomPere": "ludmila",
+      "nomMere": "amriou",
+      "prenomMere": "GFBSBES",
+      "choixMesrs": "Oui "
+    },
+    "Droits": {
+      "moudjahid": "Oui ",
+      "chahid": "Oui ",
+      "chahid2": "Oui "
+    },
+    "Recours": {
+      "num_recours": "12",
+      "cause": "lloooololooerqlemryhq",
+      "valider_recours": "Refusé",
+      "date": "21/5/2021",
+      "heure": "01:21:27",
+      "accuse": "2021-SFSD-TP-G01_G02_G03.pdf",
+      "rec": true
+    },
+    "Valider": false,
+    "Dossier_Complet": true
+  },
+  {
+    "Etat_Civil": {
+      "Numerodossier": 12,
+      "nom": "amriou",
+      "prenom": "ludmila",
+      "dateReception": "2002-01-31",
+      "heureReception": "04:31",
+      "matricule": "1320020131"
+    },
+    "Valider": false,
+    "Dossier_Complet": false
+  }
+]

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mot de passe oublié</title>
+    <% if (message.length > 0){  %>
+        <div class="alert">
+            <%= message %>
+        </div>
+        <% } %>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    .all {
+        position: center;
+    }
+    
+    body {
+        background-color: #CCE6F4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container {
+        background-image: url(../img/background.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+        position: relative;
+        z-index: 1;
+        width: 75%;
+        padding: 100px;
+        margin: 50px;
+    }
+    
+    .container::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #4BA3C3;
+        opacity: 80%;
+        z-index: -1;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 30%;
+        position: relative;
+        width: 80vw;
+        margin-top: -50px;
+    }
+    
+    li,
+    a,
+    button {
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: white;
+        text-decoration: none;
+    }
+    
+    nav img {
+        width: 45px;
+        height: 30px;
+        margin-left: -200px;
+    }
+    
+    .nav-links {
+        list-style: none;
+    }
+    
+    .nav-links li {
+        display: inline-block;
+        padding: 0px 20px;
+    }
+    
+    .nav-links li a {
+        transition: all 0.3s ease 0s;
+        color: white;
+    }
+    
+    .nav-links li a:hover {
+        color: #fa7f74;
+    }
+    
+    button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        font-size: 18px;
+        height: 45px;
+        border: 1px solid;
+        background: #fa7f74;
+        color: rgb(255, 255, 255);
+        width: 180px;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+        padding: 10px;
+    }
+    
+    button img {
+        width: 15px;
+        margin: 10px;
+    }
+    
+    .center {
+        background-color: white;
+        padding: 20px;
+        margin: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .center h1 {
+        margin-bottom: 45px;
+        margin-top: 15px;
+    }
+    
+    .center p {
+        margin-bottom: 45px;
+        padding: 10px;
+        font-size: 18px;
+    }
+    
+    .num {
+        margin-bottom: 20px;
+    }
+    
+    input {
+        width: 45px;
+        height: 45px;
+        padding: 30px;
+        margin: 10px;
+        border-top: #175676;
+        border-left: #175676;
+        border-right: #175676;
+        background: none;
+        outline: none;
+    }
+    
+    .selected-lang {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        width: 50px;
+    }
+    
+    .selected-lang:before {
+        content: '';
+        display: block;
+        width: 12px;
+        height: 12px;
+    }
+    
+    .lang-menu {
+        position: relative;
+    }
+    
+    .lang-menu ul {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        border: 1px bold #F8F8F8;
+        box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+        display: none;
+        position: absolute;
+        top: 20px;
+        left: 0px;
+    }
+    
+    .lang-menu ul li {
+        list-style: none;
+        color: #175676;
+    }
+    
+    .lang-menu ul li a {
+        width: 50px;
+        display: block;
+        padding: 3px 8px;
+        text-decoration: none;
+        color: #175676;
+    }
+    
+    .lang-menu:hover ul {
+        display: block;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <nav>
+            <img src="../img/whitelogo.png" class="logo">
+            <ul class="nav-links">
+                <li><a href="/connecter">Se connecter</a></li>
+                <li>
+                    <a href="#">
+                        <div class="lang-menu">
+                            <div class="selected-lang">
+                                Francais
+                            </div>
+                            <ul>
+                                <li> <a href="#" class="ar">Arabe</a></li>
+                                <li> <a href="#" class="eng">Englais</a></li>
+                            </ul>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="center">
+            <h1>Mot de passe oublié ?</h1>
+            <p>Entrez votre email afin de recevoir un code de connexion: </p>
+            <form method="POST" action="/reinitialiser" id="contact-form">
+                <input type="email" name="email" required>
+        </div>
+
+        <button>Envoyer<img src="../img/fleche.png" alt="arrow"></button>
+        </form>
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Recours</title>
+    <link rel="shortcut icon" type="image/jpg" href="../img/lo.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width" , initia-scale=1>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+</head>
+
+
+<style>
+    /*===== GOOGLE FONTS =====*/
+    
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+    /*===== VARIABLES CSS =====*/
+    
+     :root {
+        /*===== Colores =====*/
+        --first-color: #1A73E8;
+        --input-color: #80868B;
+        --border-color: #DADCE0;
+        /*===== Fuente y tipografia =====*/
+        --body-font: 'Roboto', sans-serif;
+        --normal-font-size: 1rem;
+        --small-font-size: .75rem;
+    }
+    
+     :root {
+        --nav-width: 200px;
+        --nav-collapse-width: 100px;
+        --header-height: 75px;
+        --nav-bg-color: #4BA3C3;
+        --active-color: #CCE6F4;
+    }
+    
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+    /* Global Style */
+    
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #343434;
+    }
+    /* Header Styles */
+    
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+        height: var(--header-height);
+        background-color: #f3f3f3;
+        padding-left: calc(var(--nav-width) + 1rem);
+        transition: padding-left 0.3s ease-in-out;
+    }
+    
+    header #nav-toggler {
+        font-size: 1.5rem;
+        box-shadow: 0 0 1px #343434;
+        background-color: #fff;
+        padding: 0.25rem 0.35rem;
+        border-radius: 0.25rem;
+    }
+    /* Side Menu Styles */
+    
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: var(--nav-bg-color);
+        width: var(--nav-width);
+        transition: width 0.2s ease-in-out;
+        box-shadow: 0 0 2px #343434;
+    }
+    
+    nav .logo {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: var(--header-height);
+    }
+    
+    nav .logo span {
+        margin-left: 1rem;
+    }
+    
+    .nav__item-link,
+    .logo,
+    .sign-out {
+        font-size: 1.25rem;
+        display: block;
+        padding: 1rem;
+        color: #f3f3f3;
+        white-space: nowrap;
+    }
+    
+    .sign-out span form button {
+        font-size: 1.25rem;
+        padding: 1rem;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: #f3f3f3;
+    }
+    
+    .nav__item-link span,
+    .logo span,
+    .sign-out span {
+        margin-left: 0.5rem;
+    }
+    
+    .nav__item-link+ul a {
+        display: block;
+        padding: 1rem;
+        background-color: #f3f3f3;
+        white-space: nowrap;
+    }
+    /* JS Classes */
+    
+    .collapse {
+        width: var(--nav-collapse-width);
+    }
+    
+    .collapse i {
+        margin-left: 0.5rem;
+    }
+    
+    .collapse span {
+        display: none;
+    }
+    
+    .collapse .nav__item-link+ul a {
+        font-size: 0.85rem;
+    }
+    
+    .collapse-header {
+        padding-left: calc(var(--nav-collapse-width) + 1rem);
+    }
+    
+    .active {
+        position: relative;
+        color: var(--active-color);
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    
+    .active:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height: 25px;
+        width: 3px;
+        margin: auto 0;
+        background-color: var(--active-color);
+    }
+    
+    .d-none {
+        display: none;
+    }
+    
+    .nav__item-link+ul a.active-sub-link {
+        background-color: #ddd;
+    }
+    
+    @media screen and (max-width: 768px) {
+        header {
+            padding-left: 1rem;
+        }
+        nav {
+            width: 0px;
+            overflow: hidden;
+        }
+        .nav__item-link span,
+        .logo span,
+        .sign-out span {
+            display: none;
+        }
+    }
+    
+    .title {
+        font-size: 35px;
+        font-weight: 500;
+    }
+    
+    input {
+        display: block;
+        margin-left: auto;
+        padding: none;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        color: #175676;
+        font-size: var(--normal-font-size);
+        border-radius: .5rem;
+        cursor: pointer;
+        transition: .3s;
+    }
+    
+    .title {
+        font-family: 'Open Sans', Sans-serif;
+        font-weight: 100;
+        font-size: 35px;
+        position: relative;
+        text-align: center;
+        left: 25px;
+    }
+    
+    .title::before {
+        content: '';
+        position: absolute;
+        left: 210;
+        bottom: 0;
+        height: 1px;
+        width: 900px;
+        background: black
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    /*===== BASE =====*/
+    
+    *,
+     ::before,
+     ::after {
+        box-sizing: border-box;
+    }
+    
+    body {
+        background: url(../img/back2.png);
+        box-sizing: border-box;
+        font-family: var(--body-font);
+        font-size: var(--normal-font-size);
+    }
+    
+    h1 {
+        margin: 0;
+    }
+    /*===== FORM =====*/
+    
+    .l-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .form {
+        background-color: white;
+        width: 900px;
+        padding: 4rem 7rem;
+        border-radius: 1rem;
+        box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+    }
+    
+    .form__title {
+        font-weight: 500;
+        margin-bottom: 3rem;
+    }
+    
+    .form__div {
+        background-color: white;
+        position: relative;
+        height: 48px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .form__input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: var(--normal-font-size);
+        border: 1px solid var(--border-color);
+        border-radius: .5rem;
+        outline: none;
+        padding: 1rem;
+        background: none;
+        z-index: 1;
+    }
+    
+    .form__label {
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        padding: 0 .25rem;
+        background-color: #fff;
+        color: var(--input-color);
+        font-size: var(--normal-font-size);
+        transition: .3s;
+    }
+    
+    .form__button {
+        display: block;
+        margin-left: auto;
+        padding: .75rem 2rem;
+        outline: none;
+        border: none;
+        background-color: #D62839;
+        color: #fff;
+        font-size: var(--normal-font-size);
+        border-radius: .5rem;
+        cursor: pointer;
+        transition: .3s;
+    }
+    
+    .form__button:hover {
+        box-shadow: 0 10px 36px rgba(0, 0, 0, .15);
+    }
+    /*Input focus move up label*/
+    
+    .form__input:focus+.form__label {
+        top: -.5rem;
+        left: .8rem;
+        color: var(--first-color);
+        font-size: var(--small-font-size);
+        font-weight: 500;
+        z-index: 10;
+    }
+    /*Input focus sticky top label*/
+    
+    .form__input:not(:placeholder-shown).form__input:not(:focus)+.form__label {
+        top: -.5rem;
+        left: .8rem;
+        font-size: var(--small-font-size);
+        font-weight: 500;
+        z-index: 10;
+    }
+    /*Input focus*/
+    
+    .form__input:focus {
+        border: 1.5px solid var(--first-color);
+    }
+</style>
+
+<body>
+
+    <header id="header">
+        <i class="fas fa-bars" id="nav-toggler"></i>
+        <div>
+            <i class="fas fa-user-alt"></i>
+            <span><%= name %> <%=firstname%> </span>
+        </div>
+    </header>
+
+    <nav id="nav">
+        <div>
+            <div class="logo">
+                <a href="http://127.0.0.1:3000/profil">
+                    <span>Logement ESI</span> </a>
+            </div>
+            <ul class="nav">
+                <li class="nav__item">
+                    <a href="#" class="nav__item-link">
+                        <i class="fas fa-home"></i>
+                        <span>Menu <i class="fas fa-angle-down"></i></span>
+                    </a>
+                    <ul class="d-none">
+                        <li>
+                            <a href="http://localhost:3000/DossierNonVal" class="sub_link">Valider dossiers</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost:3000/DossierVal" class="sub_link">Dossier validés</a>
+                        </li>
+                        <li>
+                    </ul>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__item-link active">
+                            <i class="fas fa-address-book"></i>
+                            <span>Ajouter recours</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__item-link ">
+                            <i class="fas fa-user-alt"></i>
+                            <span>Mon profil</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__item-link">
+                            <i class="fas fa-cogs"></i>
+                            <span>Paramètres</span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+
+        <a class="sign-out">
+
+            <i class="fas fa-sign-out-alt" style="display:inline-block;"></i><span>
+                <form style="display: inline-block;"action="/logout?_method=DELETE" method="POST">
+                <button  type="submit">Deconnexion</button>
+            </form>
+        </span>
+        </a>
+    </nav>
+
+    <script src="main.js" defer></script>
+    <br>
+    <br>
+
+
+    <div class="l-form">
+        <form action="/recours" method="POST" class="form">
+            <h1 class="form__title">Dossier de recours </h1>
+
+            <div class="form__div">
+                <input type="text" class="form__input" name="Matricule" placeholder=" " required>
+                <label for="" class="form__label">Matricule</label>
+            </div>
+
+            <div class="form__div">
+                <input type="number" class="form__input" placeholder=" " name="Numero_de_dossier" required>
+                <label for="" class="form__label">Numero de dossier </label>
+            </div>
+
+            <div class="form__div">
+                <input type="text" class="form__input" placeholder=" " name="Nom" required>
+                <label for="" class="form__label">Nom</label>
+            </div>
+
+            <div class="form__div">
+                <input type="text" class="form__input" placeholder=" " name="Prenom" required>
+                <label for="" class="form__label">Prénom</label>
+            </div>
+
+            <div class="form__div">
+                <input type="text" class="form__input" placeholder=" " name="Cause" required>
+                <label for="" class="form__label">Cause</label>
+            </div>
+
+            <div class="form__div">
+                <input type="file" class="form__input" placeholder=" " name="Accuse" required>
+                <label for="" class="form__label">Accuse reception</label>
+            </div>
+
+            <input type="submit" class="form__button" value="Enregistrer">
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <script>
+        const nav_links = document.querySelectorAll(".nav__item-link");
+        const sub_links = document.querySelectorAll(".sub_link");
+
+        function collapse_nav(head, toggler, sidenav) {
+            const header = document.getElementById(head);
+            const nav_toggler = document.getElementById(toggler);
+            const nav = document.getElementById(sidenav);
+
+            nav_toggler.addEventListener("click", function() {
+                this.classList.toggle("fa-times");
+                nav.classList.toggle("collapse");
+                header.classList.toggle("collapse-header");
+            });
+        }
+
+        collapse_nav("header", "nav-toggler", "nav");
+
+        nav_links.forEach((link) => {
+            link.addEventListener("click", function() {
+                nav_links.forEach((l) => {
+                    if (l.classList.contains("active")) {
+                        l.classList.remove("active");
+                    }
+                });
+
+                this.classList.toggle("active");
+                const sub_menu = this.nextElementSibling;
+                if (sub_menu) {
+                    sub_menu.classList.toggle("d-none");
+                }
+            });
+        });
+
+        sub_links.forEach((link) => {
+            link.addEventListener("click", () => {
+                sub_links.forEach((l) => l.classList.remove("active-sub-link"));
+                link.classList.toggle("active-sub-link");
+            });
+        });
+    </script>
+</body>
+
+</html>

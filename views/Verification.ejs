@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/jpg" href="../img/lo.jpg">
+    <link rel="stylesheet" href="../css/verification.css">
+    <title>Verification</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="undefined" crossorigin="anonymous">
+</head>
+
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+        box-sizing: border-box;
+        background: linear-gradient( 135deg, #EDD2D7, #CCE6F4);
+        ;
+    }
+    
+    .FORMULAIRE {
+        display: flex;
+        padding: 10px;
+        padding-top: 90px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container {
+        max-width: 1100px;
+        width: 100%;
+        background: #fff;
+        padding: 25px 30px;
+        border-radius: 5px;
+    }
+    
+    .container .title {
+        background: white;
+        font-size: 35px;
+        font-weight: 500;
+        position: relative;
+    }
+    
+    .container .title::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 110px;
+        background: linear-gradient( 135deg, #D62839, #CCE6F4, white);
+    }
+    
+    .container form .user-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0 12px 0;
+    }
+    
+    form .user-details .input-box {
+        margin-bottom: 15px;
+        width: calc(100% / 2 - 20px);
+    }
+    
+    .user-details .input-box .user-details {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+    
+    .user-details .input-box input {
+        height: 45px;
+        width: 100%;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding-left: 15px;
+        font-size: 16px;
+        border-bottom-width: 3px;
+        transition: all 0.3s ease;
+    }
+    
+    .user-details .input-box input:focus,
+    .user-details .input-box input:valid {
+        border-color: #4BA3C3;
+    }
+    
+    form .button {
+        height: 45px;
+        margin: 45px 0;
+    }
+    
+    form .button input {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        color: white;
+        background: #4BA3C3;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+    
+    form .button input:hover {
+        background: #175676;
+    }
+    
+    @media (max-width:584px) {
+        .container {
+            max-width: 100%;
+        }
+        form .user-details .input-box {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+    }
+    
+    label {
+        color: black;
+        font-size: 20px;
+        font-weight: 100;
+    }
+    
+    .menu-bar2 img {
+        width: 45px;
+        height: 30px;
+        float: left;
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+    
+    .menu-bar2 {
+        height: 70px;
+        width: 100%;
+        background-color: #175676;
+    }
+    
+    .menu-bar2 ul {
+        float: right;
+        margin-right: 10px;
+    }
+    
+    .menu-bar2 ul li {
+        display: inline-block;
+        line-height: 70px;
+        margin: 0 5px;
+    }
+    
+    .menu-bar2 ul li a {
+        color: white;
+        font-size: 15px;
+        text-decoration: none;
+        padding: 7px 13px;
+        border-radius: 1px;
+    }
+    
+    .menu-bar2 ul li a:hover {
+        background: #4BA3C3;
+        border-radius: 6px;
+        text-align: center;
+        transition: .5s;
+    }
+    
+    .menu-bar2 ul li form button {
+        text-decoration: none;
+        background: transparent;
+        color: white;
+        border: transparent;
+        font-size: 15px;
+        outline: none;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: 100;
+        letter-spacing: 1px;
+    }
+    
+    .menu-bar2 ul li form button:hover {
+        color: #4BA3C3;
+        text-align: center;
+        transition: .5s;
+        border-radius: 6px;
+    }
+    
+    footer {
+        position: absolute;
+        background-color: #175676;
+        height: auto;
+        width: 100vw;
+        font-family: "Open sans";
+        padding-top: 40px;
+        color: white;
+    }
+    
+    .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-content p {
+        max-width: 400px;
+        margin: 10px auto;
+        line-height: 20px;
+        font-size: 14px;
+    }
+    
+    .footer-content h3 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-transform: capitalize;
+        line-height: 3rem;
+    }
+    
+    .socials {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem 0 3rem 0;
+    }
+    
+    .socials li {
+        margin: 0 10px;
+    }
+    
+    .socials a {
+        text-decoration: none;
+        color: white;
+    }
+    
+    .socials a img {
+        font-size: 1.1rem;
+    }
+    
+    .footer-bottom {
+        width: 100vw;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .footer-bottom p {
+        font-size: 14px;
+        word-spacing: 2px;
+        text-transform: capitalize;
+    }
+    
+    footer img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    header {
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+    }
+</style>
+
+
+
+
+<header>
+    <div class="menu-bar2" id="click">
+        <img src="../img/whitelogo.png" alt="logo">
+        <ul>
+            <li><a href="http://127.0.0.1:3000/profil">Accueil</a></li>
+            <li><a href="#">A propos</a></li>
+            <li><a href="http://127.0.0.1:3000/profil">Mon profile</a></li>
+            <li>
+                <form action="/logout?_method=DELETE" method="POST">
+                    <button type="submit">Deconnexion</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<body>
+
+    <!--FOMULAIRE-->
+
+    <div class="FORMULAIRE">
+
+        <div class="container">
+
+            <form method="POST" action="/verifier">
+                <div class="title"> Informations demandeur </div>
+                <div class="user-details">
+
+                    <div class="input-box">
+                        <span class="details">Nom</span>
+                        <input type="text" placeholder="Entrer le nom" name="Nom" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Prénom</span>
+                        <input type="text" placeholder="Entrer le prénom" name="Prenom" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Date de reception de dossier </span>
+                        <input type="date" placeholder="Entrer la date" name="Date_de_reception" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Heure actuelle de depot</span>
+                        <input type="time" placeholder="Entrer l'heure de dépot" name="Heure_de_depot" required>
+                    </div>
+                </div>
+                <div class="title"> Etat de dossier </div>
+                <br>
+                <br>
+                <div class="input-boxx" required>
+                    <input type="checkbox" name="check" value="ch1"> <label for="ch1"> Attestation ayant droit</label><br>
+                    <input type="checkbox" name="check" value="ch2"> <label for="ch1"> Arrete de nomination vise hors secteur MERS(FP)</label><br>
+                    <input type="checkbox" name="check" value="ch3"> <label for="ch1"> Arrete de responsabilité vise</label><br>
+                    <input type="checkbox" name="check" value="ch4"> <label for="ch1"> PV de la premiére installation dans le post</label><br>
+                    <input type="checkbox" name="check" value="ch6"> <label for="ch1"> Fiche familiale ou individuelle</label><br>
+                    <input type="checkbox" name="check" value="ch7"> <label for="ch1">  Extrait de naissance</label><br>
+                    <input type="checkbox" name="check" value="ch8"> <label for="ch1"> Fiche de renseignement photocopie de la piéce d'identité</label><br>
+                    <input type="checkbox" name="check" value="ch9"> <label for="ch1"> Demande manuscrite </label><br>
+                    <input type="checkbox" name="check" value="ch10"> <label for="ch1">  Photo </label><br>
+                    <input type="checkbox" name="check" value="ch11"> <label for="ch1"> Attestation ayant droit </label><br>
+                    <input type="checkbox" name="check" value="ch11"><label for="ch1">  Arrete de nomination vise </label><br>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Enregistrer">
+                </div>
+        </div>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <footer>
+        <div class="footer-content">
+            <h3>Contact Us</h3>
+            <p>Recenessenement de logement de l'Ecole superieure national de l'informatique</p>
+            <ul class="socials" id="contact">
+                <li>
+                    <a href="#"><img src="../img/facebook.png"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../img/email.png"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../img/marquer.png"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../img/phone.png"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>COPYRIGHTS &copy; 2020 all rights reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>

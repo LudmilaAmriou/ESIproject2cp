@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/jpg" href="../img/lo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Archive</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: url(../img/back2.png);
+    }
+    
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    
+    .box {
+        position: relative;
+        width: 350px;
+        padding: 40px;
+        background: #fff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+        border-radius: 4px;
+        margin: 20px;
+        overflow: hidden;
+        text-align: center;
+    }
+    
+    .box:before {
+        content: "";
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(255, 255, 255, .2);
+        z-index: 1;
+    }
+    
+    .box .icon {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        background: #000;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        font-size: 40px;
+        font-weight: 700;
+        border-radius: 50%;
+        transition: 1s;
+    }
+    
+    .box:nth-child(1) .icon {
+        box-shadow: 0 0 0 0 #D62839;
+        background: #D62839;
+    }
+    
+    .box:nth-child(1):hover .icon {
+        box-shadow: 0 0 0 400px #D62839;
+    }
+    
+    .box:nth-child(2) .icon {
+        box-shadow: 0 0 0 0 #175676;
+        background: #175676;
+    }
+    
+    .box:nth-child(2):hover .icon {
+        box-shadow: 0 0 0 400px #175676;
+    }
+    
+    .box:nth-child(3) .icon {
+        box-shadow: 0 0 0 0 #4BA3C3;
+        background: #4BA3C3;
+    }
+    
+    .box:nth-child(3):hover .icon {
+        box-shadow: 0 0 0 400px #4BA3C3;
+    }
+    
+    .box .content {
+        position: relative;
+        z-index: 2;
+        transition: .5s;
+    }
+    
+    .box:hover .content {
+        color: #fff;
+    }
+    
+    .box .content h3 {
+        font-size: 20px;
+        margin: 20px 0;
+    }
+    
+    .box .content a {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #fff;
+        border-radius: 4px;
+        text-decoration: none;
+        color: #000;
+        font-weight: 500;
+        margin-top: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="box">
+            <div class="icon">01</div>
+            <div class="content">
+                <h3>Dossiers complets</h3>
+
+                <a href="http://127.0.0.1:3000/listeDoComplets">Voir</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icon">02</div>
+            <div class="content">
+                <h3>Dossiers incomplets</h3>
+
+                <a href="http://127.0.0.1:3000/listeDoIncomplets">Voir</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icon">03</div>
+            <div class="content">
+                <h3>Tous les dossiers</h3>
+
+                <a href="#">Voir</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

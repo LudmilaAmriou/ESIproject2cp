@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        input.buttonn {
+            background-color: #175676;
+            border: none;
+            text-align: center;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+            color: #ffffff;
+            font-family: "Roboto", sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+        }
+        
+        input.buttonn:hover {
+            background-color: #CCE6F4;
+            border-radius: 50px;
+        }
+        
+        body {
+            background-color: white;
+        }
+        
+        h2 {
+            text-align: center;
+            text-shadow: #4BA3C3;
+        }
+        /* LE DESIGN POUR OUVRIR ETAT */
+        
+        .modal {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #175676;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-items: center;
+            transition: .3s;
+        }
+        
+        .modal:target {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .modal h2 {
+            background-color: white;
+            padding: 1.5em 2em;
+            width: 500px;
+            max-width: 90%;
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .modal_close {
+            position: absolute;
+            right: 390px;
+            top: 260px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .menu-bar2 {
+            text-align: right;
+            background-color: #175676;
+        }
+        
+        .menu-bar2 ul {
+            display: inline-flex;
+            list-style: none;
+            color: white;
+        }
+        
+        .menu-bar2 ul li {
+            width: 100px;
+            margin: 10px;
+            padding: 10px;
+        }
+        
+        .menu-bar2 ul li a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        .menu-bar2 ul li:hover {
+            background: #D62839;
+            text-align: center;
+            border-radius: 50px;
+        }
+        
+        .submenu1 {
+            display: none;
+        }
+        
+        .menu-bar2 ul li:hover .submenu1 {
+            display: block;
+            position: absolute;
+            background-color: #175676;
+            margin-top: 10px;
+            margin-left: -50px;
+        }
+        
+        .menu-bar2 ul li:hover .submenu1 ul {
+            display: block;
+            margin: 10px;
+        }
+        
+        .menu-bar2 ul li:hover .submenu1 ul li {
+            width: 100px;
+            padding: 5px;
+            border-bottom: 1px dotted #fffF;
+            background: transparent;
+            border-radius: 0;
+            text-align: left;
+        }
+        
+        .menu-bar2 ul li:hover .submenu1 ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-bar2 ul li:hover .submenu1 ul li a:hover {
+            color: white;
+        }
+        
+        .FORMULAIRE {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .FORMULAIRE h2 {
+            margin: 30px;
+            color: #D62839;
+        }
+        
+        fieldset {
+            width: 40%;
+            padding: 10px 20px;
+            background-color: #CCE6F4;
+            border: transparent;
+            border-radius: 30px;
+        }
+        
+        legend {
+            text-align: center;
+            color: #175676;
+            margin: 10px;
+            font-size: 19px;
+            border-bottom: #175676 solid 3px;
+        }
+        
+        input {
+            margin: 5px;
+        }
+        
+        .btn {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            background-color: #175676;
+            color: white;
+            font-size: 16px;
+            padding: 9px 25px;
+            cursor: pointer;
+            border-radius: 50px;
+            margin: 45px;
+        }
+        
+        #box {
+            width: 500px;
+            overflow: hidden;
+            background-color: pink;
+            box-shadow: 0 0 10px black;
+            border-radius: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            padding: 20px;
+            text-align: center;
+            display: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        #box h1 {
+            color: #175676;
+        }
+        
+        .close {
+            font-size: 20px;
+            color: white;
+            padding: 10px 30px;
+            cursor: pointer;
+            background-color: #175676;
+            display: inline-block;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 10px;
+            font-family: "Roboto", sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        header {
+            background-color: #175676;
+        }
+        
+        .menu {
+            text-align: center;
+            padding: 50px;
+            margin: 5px;
+        }
+        
+        .menu h1 {
+            font-size: 20px;
+            color: #D62839;
+        }
+        
+        .section {
+            display: grid;
+            grid-template-columns: 30% 30% 30%;
+            justify-content: center;
+            grid-gap: 1rem;
+        }
+        
+        li,
+        a,
+        button {
+            font-family: "Roboto", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: white;
+            text-decoration: none;
+        }
+        
+        img {
+            width: 50px;
+            height: 40px;
+            margin: 15px;
+            vertical-align: middle;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 5%;
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 100vw;
+        }
+        
+        header nav img {
+            width: 10px;
+            height: 10px;
+            margin: 0;
+        }
+        
+        nav ul li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo {
+            cursor: pointer;
+            margin-right: 150px;
+            margin-left: 25px;
+        }
+        
+        .nav-links {
+            list-style: none;
+        }
+        
+        .nav-links li {
+            display: inline-block;
+            padding: 10px 10px;
+        }
+        
+        .nav-links li a {
+            transition: all 0.3s ease 0s;
+            color: #cce6f4;
+        }
+        
+        .nav-links li a:hover {
+            color: white;
+        }
+        
+        .submenu1 {
+            display: none;
+        }
+        
+        .nav-links li:hover .submenu1 {
+            display: block;
+            position: absolute;
+            background-color: #4BA3C3;
+            margin-top: 10px;
+            margin-left: -50px;
+        }
+        
+        .nav-links li:hover .submenu1 ul {
+            display: block;
+            margin: 10px;
+        }
+        
+        .nav-links li:hover .submenu1 ul li {
+            width: 100px;
+            padding: 5px;
+            border-bottom: 1px dotted #fff;
+            background: transparent;
+            border-radius: 0;
+            text-align: left;
+        }
+        
+        .nav-links li:hover .submenu1 ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .nav-links li:hover .submenu1 ul li a:hover {
+            color: #175676;
+        }
+        
+        form {
+            font-size: 15px;
+        }
+        
+        footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #175676;
+            height: auto;
+            width: 100vw;
+            color: white;
+        }
+        
+        .footer-bottom {
+            width: 100vw;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            font-size: 14px;
+            word-spacing: 2px;
+            text-transform: capitalize;
+        }
+        
+        @media only screen and (min-width: 10000px) {
+            header {
+                padding: 0px 10%;
+            }
+            header nav img {
+                width: 20px;
+                height: 20px;
+                margin: 5px;
+            }
+            .logo {
+                margin-right: 300px;
+                margin-left: 50px;
+            }
+            .nav-links li {
+                padding: 20px 40px;
+            }
+        }
+        
+        .allusers {
+            color: #175676;
+            padding-left: 60px;
+            padding-top: 900px;
+        }
+        
+        input {
+            height: 25px;
+            border-radius: 5px;
+            border-color: #ffffff;
+        }
+        
+        button {
+            padding: 9px 25px;
+            background-color: #175676;
+            border: none;
+            text-align: center;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+        }
+        
+        button:hover {
+            background-color: #CCE6F4;
+            border-radius: 50px;
+        }
+        
+        .last-button {
+            padding-left: 385px;
+        }
+        
+        #box {
+            width: 500px;
+            overflow: hidden;
+            background-color: pink;
+            box-shadow: 0 0 10px black;
+            border-radius: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            padding: 20px;
+            text-align: center;
+            display: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        #box h1 {
+            color: #175676;
+        }
+        
+        .close {
+            font-size: 20px;
+            color: white;
+            padding: 10px 30px;
+            cursor: pointer;
+            background-color: #175676;
+            display: inline-block;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+
+    <header>
+        <img src="../img/whitelogo.png" class="logo">
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="http://127.0.0.1:3000/profil"> <img src="../img/home.png"> Accueil</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/phone.png"> A propos</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/whiteprofile.png" alt=""> Mon profile</a>
+                    <div class="submenu1">
+                        <ul>
+                            <li><a href="#">Deconnexion</a></li>
+                            <li><a href="#">Parametres</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <a class="allusers" href="/users">All users</a>
+    <legend><strong>Modifier le profil</strong></legend>
+    <div class="FORMULAIRE">
+        <fieldset>
+            <form action="/param" class="center" method="POST">
+                <div><label for="nom"> le nom : </label>
+                    <input type="text" name="nom"></div>
+                <br>
+                <div><label for="prenom">le prénom :</label>
+                    <input type="text" name="prenom"></div>
+                <br>
+                <div><label for="prenom">Email :</label>
+                    <input type="email" name="email"></div>
+                <br>
+                <div><label for="numtel">Numéro de téléphone :</label>
+                    <input type="text" name="Numtel"></div>
+                <br>
+                <div><label for="prenom">Mot de passe :</label>
+                    <input type="text" name="mot de passe"></div>
+                <br>
+
+
+        </fieldset>
+    </div>
+    <br>
+
+    <div class="last-button">
+        <button id="butto"><input class="buttonn" type="submit" value="Changer"></button>
+    </div>
+    </form>
+    <script></script>
+
+</html>

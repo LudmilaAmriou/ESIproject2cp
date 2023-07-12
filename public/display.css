@@ -1,0 +1,246 @@
+:root {
+  --bf: #175676;
+  --bc: #4ba3c3;
+  --bb: #c6e3f2;
+  --rc: #edd2d7;
+  --rf: #f3bfc4;
+  --b: #eef7fb;
+}
+.alert {
+  background-color: rgb(159, 223, 96);
+  color: white;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif "roboto";
+}
+#adr {
+  height: fit-content;
+  width: max-content;
+}
+.espace {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 7;
+  padding-bottom: 7px;
+  border-radius: 40px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bf);
+  height: fit-content;
+  width: fit-content;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 35px;
+}
+h2 {
+  text-align: center;
+}
+/* #deux {
+  text-align: auto;
+  margin-inline: auto;
+  position: relative;
+  text-size-adjust: 12px;
+  font-size: 20px;
+} */
+.logo {
+  cursor: pointer;
+  margin-right: 300px;
+  margin-left: 50px;
+  width: 50px;
+  height: 50px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 50px;
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+  padding: 7px 15px 7px 15px;
+  background-color: var(--rf);
+  margin-inline: auto;
+  margin-top: -40px;
+  border-color: var(--bb);
+  color: var(--bf);
+}
+.info {
+  display: inline-flex;
+  align-content: baseline;
+  align-items: baseline;
+}
+.bloc {
+  margin: auto;
+  padding: 5px;
+}
+img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  padding: 5px;
+  margin-left: 520px;
+}
+.partie {
+  background-color: var(--b);
+  margin-top: 50px;
+  border-style: outset;
+  border-width: 1px;
+  border-color: var(--bf);
+  width: 97%;
+  height: max-content;
+  border-radius: 50px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10%;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: auto;
+} */
+/* .espace {
+
+  display: flex;
+  justify-content: center;
+} */
+.logo {
+  cursor: pointer;
+  margin-right: 300px;
+  margin-left: 50px;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links li {
+  display: inline-block;
+  padding: 0px 50px;
+}
+#nav2 {
+  display: inline-block;
+  padding: 0px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: var(--bc);
+}
+
+.nav-links li a {
+  transition: all 0.3s ease 0s;
+  color: white;
+}
+
+.nav-links li a:hover {
+  color: var(--bb);
+}
+
+button {
+  padding: 8px 80px 8px 80px;
+  margin: 8px;
+  background-color: white;
+  border: var(--bf);
+  border-radius: 10px;
+  cursor: pointer;
+  transform: all 0.3s ease 0s;
+}
+
+button:hover {
+  background-color: var(--bf);
+}
+#accept {
+  background-color: green;
+  border-radius: 50px;
+  color: white;
+}
+#refuse {
+  background-color: red;
+  border-radius: 50px;
+  color: white;
+}
+.but {
+  position: relative;
+  bottom: 0px;
+  left: 1000px;
+}
+.menu-bar2 {
+  text-align: right;
+  background-color: #175676;
+}
+.menu-bar2 ul {
+  display: inline-flex;
+  list-style: none;
+  color: white;
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+.menu-bar2 ul li {
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+}
+.menu-bar2 ul li a {
+  text-decoration: none;
+  color: white;
+}
+.menu-bar2 ul li:hover {
+  background: #d62839;
+  text-align: center;
+  border-radius: 3px;
+}
+.submenu1 {
+  display: none;
+}
+.menu-bar2 ul li:hover .submenu1 {
+  display: block;
+  position: absolute;
+  background-color: #175676;
+  margin-top: 10px;
+  margin-left: -50px;
+}
+.menu-bar2 ul li:hover .submenu1 ul {
+  display: block;
+  margin: 10px;
+}
+.menu-bar2 ul li:hover .submenu1 ul li {
+  width: 100%;
+  padding: 5px;
+  border-bottom: 1px dotted #ffff;
+  background: transparent;
+  border-radius: 0;
+  text-align: left;
+}
+.menu-bar2 ul li:hover .submenu1 ul li:last-child {
+  border-bottom: none;
+}
+.menu-bar2 ul li:hover .submenu1 ul li a:hover {
+  color: white;
+}
+.menu-bar2 img {
+  width: 50px;
+  height: 30px;
+  float: left;
+  margin-top: 15px;
+  margin-left: 20px;
+}

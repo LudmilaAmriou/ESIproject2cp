@@ -1,0 +1,242 @@
+<html>
+    <head>
+        <title>Dossier demandeur</title>
+        <link rel="stylesheet" href="display.css">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width", initia-scale=1>
+    </head>
+    <script>
+
+    </script>
+    <body>
+        <header>
+            <div class = "menu-bar2" id="click">
+                <img src="./whitelogo.png" alt="logo">
+                <ul>
+                    <li><a href="http://127.0.0.1:5000/menu">Accueil</a></li>
+                    <li><a href="#">A propos</a></li>
+                    <li><a href="#">Mon profile</a>
+                        <div class ="submenu1">
+                            <ul>
+                                <li><a href="http://127.0.0.1:5000/login">Deconnexion</a></li>
+                                <li><a href="#">Parametres</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>                  
+            </div> 
+        </header>
+
+        <div>
+            <nav id="nav2">
+                <button>imprimer formulair</button>
+                <button>Supprimer </button>
+                <button> listes des recours</button>
+                <button> listes des dossiers</button>
+            </nav>
+            <% if (message.length > 0){  %>
+            <div class = "alert"> <%= message %> </div>
+             <% } %>
+            <div>
+                <div class= "partie">
+                <div class="container">
+                    <h2>ETAT CIVILE</h2>
+                </div>
+
+                <div class="bloc">
+                    <section id="pic">
+                        <img  name="idd" src="agh.jpg">
+                    </section>
+                    <section class="info">
+                        <h3>Matricule</h3>
+                        <div class="espace"  name="mat"><p><%=objet.Etat_Civil.matricule%></p></div>
+                    </section>
+
+                    <section class="info">
+                        <h3>numero de dossier</h3>
+                        <div class="espace"  name="numer_de_dossier"><p><%=objet.Etat_Civil.Numerodossier%></p></div>
+                    </section>
+
+                    <section class="info">
+                        <h3>Nom</h3>
+                        <div class="espace"  name="Nom"><p><%=objet.Etat_Civil.nom %></p></div>
+                    </section>
+                    <section class="info">
+                        <h3>prenom</h3>
+                        <div class="espace"  name="prenom"><p><%=objet.Etat_Civil.prenom %></p></div>
+                    </section>
+                    <section class="info">
+                        <h3>date de naissance</h3>
+                        <div class="espace"  name="naissance"><p><%=objet.Etat_Civil.dateNaissance %></p></div>
+                    </section>
+                    <section class="info">
+                        <h3>sexe</h3>
+                        <div class="espace"   name="sexe"><p><%=objet.Etat_Civil.choixSexe %></p></div>
+                    </section>
+                    <section class="info">
+                        <h3>commune de naissance</h3>
+                        <div class="espace"  name="commune"><p><%=objet.Etat_Civil.communeNaissance %></p></div>
+                    </section>
+                    <section class="info">
+                        <h3>wilaya</h3>
+                        <div class="espace"  name="wilaya"><p><%=objet.Etat_Civil.wilaya %></p></div>
+                    </section>
+                    <section class="info">
+                        <h3>adresse</h3>
+                        <div class="espace"  name="adr"><p><%=objet.Etat_Civil.Adresse %></p></div>
+                    </section>
+                    <section class="info">
+                        <h3>numero de telephone</h3>
+                        <div class="espace"  name="num"><p><%= objet.Etat_Civil.NumeroTel%></p></div>
+                    </section>
+                    <section class="info">
+                        <h3>email</h3>
+                        <div class="espace"  name="mail"><p><%=objet.Etat_Civil.email %></p></div>
+                    </section>
+                    <section class="info">
+                        <h3>code</h3>
+                        <div class="espace"  name="code"><p><%= objet.Etat_Civil.codePostal%></p></div>
+                    </section>
+                    <section class="info">
+                        <h3>prenom u pere</h3>
+                        <div class="espace"  name="pere"><p><%= objet.Etat_Civil.prenomPere%></p></div>
+                    </section>
+                    <section class="info">
+                        <h3>nom du mere</h3>
+                        <div class="espace"  name="mere"><p><%=objet.Etat_Civil.nomMere %></p></div>
+                    </section>
+                    <section class="info">
+                        <h3>prenom de mere</h3>
+                        <div class="espace"  name="mer"><p><%=objet.Etat_Civil.prenomMere %></p></div>
+                    </section>
+                    <section class="info">
+                        <h3>Situation familial</h3>
+                        <div class="espace"  name="fam"><p><%=objet.Etat_Civil.situation %></p></div>
+                    </section>
+                    <section class="info">
+                            <h3>nombre d'enfants</h3>
+                            <div class="espace"   name="kid"><p><%= objet.Etat_Civil.nbEnfants%></p></div>
+                    </section>
+                </div>
+
+                </div>
+                <div class= "partie">
+                    <div class="container">
+                        <h2 name="deux">Experience Professionnelle</h2>
+                    </div>
+                    <div class="bloc">
+                        <section class="info">
+                            <h3>Ecole</h3>
+                            <div class="espace"   name="ecole"><p><%= objet.Experience_Professionnellle.ecole %></p></div>
+                        </section>
+    
+                        <section class="info">
+                            <h3>Direction/service</h3>
+                            <div class="espace"   name="dr"><p><%= objet.Experience_Professionnellle.DireSer %></p></div>
+                        </section>
+    
+                        <section class="info">
+                            <h3>grade</h3>
+                            <div class="espace"   name="grade"><p><%= objet.Experience_Professionnellle.Grade %></p></div>
+                        </section>
+                        <section class="info">
+                            <h3>date de debut</h3>
+                            <div class="espace"   name="dd"><p><%=objet.Experience_Professionnellle.dateDins %></p></div>
+                        </section>
+                        <section class="info">
+                            <h3>Date fin d'installation</h3>
+                            <div class="espace"   name="dfi"><p><%= objet.Experience_Professionnellle.dateFins %></p></div>
+                        </section>
+                        <section class="info">
+                            <h3>Date debut hors secteur</h3>
+                            <div class="espace"    name="ddhs"><p><%=objet.Experience_Professionnellle.dateDhors %></p></div>
+                        </section>
+                        <section class="info">
+                            <h3>Date fin hors secteur</h3>
+                            <div class="espace"   name="dfhs"><p><%=objet.Experience_Professionnellle.dateFhors %></p></div>
+                        </section>
+                        <section class="info">
+                            <h3>responsabilité</h3>
+                            <div class="espace"   name="resp"><p><%= objet.Experience_Professionnellle.res %> </p> </div>
+                        
+                    </div>
+    
+                </div>
+                <div class= "partie">
+                        <div class="container">
+                            <h2>CONJOINT</h2>
+                        </div>
+        
+                        <div class="bloc">
+                            <section class="info">
+                                <h3>Nom</h3>
+                                <div class="espace"   name="cn"><p><%= objet.Conjoint.nom%></p></div>
+                            </section>
+        
+                            <section class="info">
+                                <h3>prenom</h3>
+                                <div class="espace"   name="cp"><p><%=objet.Conjoint.prenom %></p></div>
+                            </section>
+        
+                            <section class="info">
+                                <h3>Date de naissance</h3>
+                                <div class="espace"   name="cnaissance"><p><%= objet.Conjoint.dateNaissance%></p></div>
+                            </section>
+                            <section class="info">
+                                <h3>commune de naissance</h3>
+                                <div class="espace"   name="ccommune"><p><%=objet.Conjoint.communeNaissance%></p></div>
+                            </section>
+                            <section class="info">
+                                <h3>wilaya</h3>
+                                <div class="espace"   name="cwilaya"><p><%= objet.Conjoint.wilaya%></p></div>
+                            </section>
+                            <section class="info">
+                                <h3>prenom u pere</h3>
+                                <div class="espace"   name="cpere"><p><%=objet.Conjoint.prenomPere %></p></div>
+                            </section>
+                            <section class="info">
+                                <h3>nom du mere</h3>
+                                <div class="espace"   name="cmere"><p><%=objet.Conjoint.nomMere %></p></div>
+                            </section>
+                            <section class="info">
+                                <h3>prenom de mere</h3>
+                                <div class="espace"   name="cmer"><p><%= objet.Conjoint.prenomMere%></p></div>
+                            </section>
+                            <section class="info">
+                                <h3>Conjoint au</h3>
+                                <div class="espace"   name="cc"><p><%=objet.Conjoint.choixMesrs %></p></div>
+                            </section>
+                        </div>   
+                </div>
+                <div class= "partie">
+                            <div class="container">
+                                <h2>Ayant droit</h2>
+                            </div>
+            
+                            <div class="bloc">
+
+                                <section class="info">
+                                    <h3>Moujahid</h3>
+                                    <div class="espace"   name="mo"><p><%=objet.Droits.moudjahid %></p></div>
+                                </section>
+            
+                                <section class="info">
+                                    <h3>Fils de chahid</h3>
+                                    <div class="espace"   name="chahid"><p><%=objet.Droits.chahid %></p></div>
+                                </section>
+        
+                            </div>
+            
+                </div>
+                <section class= "but">
+                    <form method="POST" action="/success">
+                    <button id="accept">validé</button>
+                    </form>
+                    <form method="POST" action="/refus">
+                    <button id="refuse">refusé</button>
+                    </form>
+                </section>
+           </div>
+        </div>
+    </body>
+</html>

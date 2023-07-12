@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>check list</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #F1F9EE;
+        }
+        
+        .menu-bar2 {
+            text-align: right;
+            background-color: #243E35;
+        }
+        
+        .menu-bar2 ul {
+            display: inline-flex;
+            list-style: none;
+            color: #F1F9EE;
+        }
+        
+        .menu-bar2 ul li {
+            width: 100px;
+            margin: 10px;
+            padding: 10px;
+        }
+        
+        .menu-bar2 ul li a {
+            text-decoration: none;
+            color: #F1F9EE;
+        }
+        
+        .menu-bar2 ul li:hover {
+            background: #7CA982;
+            text-align: center;
+            border-radius: 3px;
+        }
+        
+        .submenu1 {
+            display: none;
+        }
+        
+        .menu-bar2 ul li:hover .submenu1 {
+            display: block;
+            position: absolute;
+            background-color: #243E35;
+            margin-top: 10px;
+            margin-left: -50px;
+        }
+        
+        .menu-bar2 ul li:hover .submenu1 ul {
+            display: block;
+            margin: 10px;
+        }
+        
+        .menu-bar2 ul li:hover .submenu1 ul li {
+            width: 100px;
+            padding: 5px;
+            border-bottom: 1px dotted #fff;
+            background: transparent;
+            border-radius: 0;
+            text-align: left;
+        }
+        
+        .menu-bar2 ul li:hover .submenu1 ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-bar2 ul li:hover .submenu1 ul li a:hover {
+            color: #7CA982;
+        }
+    </style>
+    <header>
+        <div class="menu-bar2">
+            <ul>
+                <li><a href="http://127.0.0.1:3000/profil">Accueil</a></li>
+                <li><a href="#">A propos</a></li>
+                <li><a href="#">Mon profile</a>
+                    <div class="submenu1">
+                        <ul>
+                            <li><a href="http://127.0.0.1:3000/login">Deconnexion</a></li>
+                            <li><a href="#">Parametres</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <h1>le dossier de ce demandeur est bien complet.</h1>
+    <ul>
+        <li>Veillez imprimer l'accusée de reception</li>
+        <div>
+            <br>
+            <img src="accusee.PNG" alt="my pic" width="300" height="300">
+            <!--we should give the path from index.html-->
+            <!--alt is used to name the pic in case mabantsh-->
+        </div>
+
+        <tbody>
+            <tr>
+                <button><a href="accusee.PNG" download="accusee.PNG">Telecharger</a></button>
+            </tr>
+            <tr>
+                <button>imprimer</button>
+            </tr>
+        </tbody>
+        <li><a href="http://127.0.0.1:3000/saisie">Saisir les informations de ce demandeur.</a></li>
+        <li><a href="http://127.0.0.1:3000/profil">revenir au menu principal.</a></li>
+    </ul>
+</body>
+
+</html>

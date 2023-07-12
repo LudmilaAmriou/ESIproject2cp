@@ -1,0 +1,521 @@
+<html>
+
+<head>
+    <title>Classement initial</title>
+    <link rel="shortcut icon" type="image/jpg" href="../img/lo.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width" , initia-scale=1>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto');
+    * {
+        font-family: 'Open Sans', Sans-serif;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    .filter {
+        bottom: 0;
+        right: 0;
+        align-items: center;
+        align-content: center;
+        z-index: 1;
+        opacity: .7;
+    }
+    
+    .tablew {
+        border-collapse: collapse;
+        border-spacing: 0;
+        box-shadow: 0 2px 15px rgba(64, 64, 64, .7);
+        border-radius: 12px 12px 0 0;
+        overflow: hidden;
+        margin-left: 25%;
+    }
+    
+    td,
+    th {
+        padding: 15px 70px;
+        text-align: center;
+    }
+    
+    th {
+        background-color: #D62839;
+        color: #fafafa;
+        font-family: 'Open Sans', Sans-serif;
+        font-weight: 200;
+        text-transform: uppercase;
+    }
+    
+    tr {
+        transition: all .2s ease-in;
+        width: 100%;
+        background-color: #fafafa;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    tr:hover {
+        background-color: #f5f5f5;
+        transform: scale(1.02);
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    tr:nth-child(even) {
+        background-color: #eeeeee;
+    }
+    
+    header nav img {
+        width: 10px;
+        height: 10px;
+        margin: 0;
+    }
+    
+    nav ul li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .logo {
+        cursor: pointer;
+        margin-right: 150px;
+        margin-left: 25px;
+    }
+    
+    .nav-links {
+        list-style: none;
+    }
+    
+    .nav-links li {
+        display: inline-block;
+        padding: 10px 10px;
+    }
+    
+    .nav-links li a {
+        transition: all 0.3s ease 0s;
+        color: #cce6f4;
+    }
+    
+    .nav-links li a:hover {
+        color: white;
+    }
+    
+    .submenu1 {
+        display: none;
+    }
+    
+    .nav-links li:hover .submenu1 {
+        display: block;
+        position: absolute;
+        background-color: #4BA3C3;
+        margin-top: 10px;
+        margin-left: -50px;
+    }
+    
+    .nav-links li:hover .submenu1 ul {
+        display: block;
+        margin: 10px;
+    }
+    
+    .nav-links li:hover .submenu1 ul li {
+        width: 100px;
+        padding: 5px;
+        border-bottom: 1px dotted #fff;
+        background: transparent;
+        border-radius: 0;
+        text-align: left;
+    }
+    
+    .nav-links li:hover .submenu1 ul li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links li:hover .submenu1 ul li a:hover {
+        color: #175676;
+    }
+    
+    img {
+        width: 50px;
+        height: 34px;
+        margin: 15px;
+        vertical-align: middle;
+    }
+    
+    header {
+        height: 70px;
+        background: #175676;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        z-index: 10;
+    }
+    
+    .nav {
+        background-color: #4BA3C3;
+    }
+    
+    .menu {
+        text-align: center;
+        padding: 50px;
+        margin: 5px;
+    }
+    
+    .menu h1 {
+        font-size: 20px;
+        color: #D62839;
+    }
+    
+    .title {
+        font-size: 35px;
+        font-weight: 500;
+    }
+    
+    input {
+        display: block;
+        margin-left: auto;
+        padding: none;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        color: #175676;
+        font-size: var(--normal-font-size);
+        border-radius: .5rem;
+        cursor: pointer;
+        transition: .3s;
+    }
+    
+    .title {
+        font-family: 'Open Sans', Sans-serif;
+        font-weight: 100;
+        background: white;
+        font-size: 35px;
+        position: relative;
+        text-align: center;
+    }
+    
+    .title::before {
+        content: '';
+        position: absolute;
+        left: 80;
+        bottom: 0;
+        height: 1px;
+        width: 1080px;
+        background: black
+    }
+    
+    footer {
+        position: absolute;
+        background-color: #175676;
+        height: auto;
+        width: 100vw;
+        font-family: "Open sans";
+        padding-top: 40px;
+        color: white;
+    }
+    
+    .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-content p {
+        max-width: 400px;
+        margin: 10px auto;
+        line-height: 20px;
+        font-size: 14px;
+    }
+    
+    .footer-content h3 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-transform: capitalize;
+        line-height: 3rem;
+    }
+    
+    .socials {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem 0 3rem 0;
+    }
+    
+    .socials li {
+        margin: 0 10px;
+    }
+    
+    .socials a {
+        text-decoration: none;
+        color: white;
+    }
+    
+    .socials a img {
+        font-size: 1.1rem;
+    }
+    
+    .footer-bottom {
+        width: 100vw;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .footer-bottom p {
+        font-size: 14px;
+        word-spacing: 2px;
+        text-transform: capitalize;
+    }
+    
+    footer img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    header nav img {
+        width: 10px;
+        height: 10px;
+        margin: 0;
+    }
+    
+    nav ul li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .logo {
+        cursor: pointer;
+        margin-right: 150px;
+        margin-left: 25px;
+    }
+    
+    .nav-links2 {
+        list-style: none;
+    }
+    
+    .nav-links2 li {
+        display: inline-block;
+        padding: 10px 10px;
+    }
+    
+    .nav-links2 li a {
+        transition: all 0.3s ease 0s;
+        font-size: 14px;
+        color: #cce6f4;
+    }
+    
+    .nav-links2 li a:hover {
+        color: white;
+    }
+    
+    .submenu1 {
+        display: none;
+    }
+    
+    .nav-links2 li:hover .submenu1 ul {
+        display: block;
+        margin: 10px;
+    }
+    
+    .nav .nav-links2 li:hover .submenu1 ul li {
+        width: 100px;
+        padding: 5px;
+        border-bottom: 1px dotted #fff;
+        background: transparent;
+        border-radius: 0;
+        text-align: center;
+        text-decoration: none;
+        align-items: center;
+    }
+    
+    .nav-links2 li:hover .submenu1 ul li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links2 li:hover .submenu1 ul li a:hover {
+        color: #175676;
+    }
+    
+    .nav {
+        text-decoration: none;
+        background-color: #4BA3C3
+    }
+    
+    .menu {
+        text-decoration: none;
+        text-align: center;
+        padding: 50px;
+        margin: 5px;
+    }
+    
+    .menu h1 {
+        font-size: 20px;
+        color: #D62839;
+    }
+    
+    .nav img {
+        width: 10px;
+        height: 10px;
+        margin: 15px;
+        vertical-align: middle;
+    }
+    
+    .MENUU {
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+</style>
+
+
+
+<div class="MENUU">
+    <header>
+        <img src="../img/whitelogo.png" class="logo">
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="http://127.0.0.1:3000/profil"> <img src="../img/home.png"> Accueil</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/phone.png"> A propos</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/whiteprofile.png" alt=""> Mon profile</a>
+                    <div class="submenu1">
+                        <ul>
+                            <li><a href="#">Deconnexion</a></li>
+                            <li><a href="#">Parametres</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="nav">
+        <nav>
+            <ul class="nav-links2">
+                <li>
+                    <a href="#"> <img src="../img/profiledit.png">Créer un compte</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/statistiques.png">Statistiques</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/recours.png" alt="">Liste des recours </a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:5000/listeRec"> <img src="../img/dossier.png">Liste des profiles</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/archive.png">Archives</a>
+                </li>
+                <li>
+                    <a href="#"> <img src="../img/historique.png" alt="">Historiques</a>
+                    <li>
+                        <a href="#"> <img src="../img/validation.png">Liste validation</a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:3000/listeDemandeurs"> <img src="../img/dossier.png" alt="">Gestion dossiers</a>
+                    </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<body>
+
+    <br>
+    <br>
+    <div class="title">
+        Classement initial
+    </div>
+    <br>
+    <br>
+    <div class="filter">
+        <table class="tablew">
+            <tr id="header">
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>nombrepoints </th>
+            </tr>
+            <tbody id="array">
+                <% table.forEach( table => { %>
+                    <% if (table.Dossier_Complet===true){ %>
+                        <tr class="tablerow">
+                            <td>
+                                <%= table.Etat_Civil.nom %>
+                            </td>
+                            <td>
+                                <%= table.Etat_Civil.prenom %>
+                            </td>
+                            <td>
+                                <%= table.nombrepoints %>
+                            </td>
+                        </tr>
+                        <% } %>
+                            <% }) %>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+
+
+
+<footer>
+    <div class="footer-content">
+        <h3>Contact Us</h3>
+        <p>Recenessenement de logement de l'Ecole superieure national de l'informatique</p>
+        <ul class="socials" id="contact">
+            <li>
+                <a href="#"><img src="../img/facebook.png"></a>
+            </li>
+            <li>
+                <a href="#"><img src="../img/email.png"></a>
+            </li>
+            <li>
+                <a href="#"><img src="../img/marquer.png"></a>
+            </li>
+            <li>
+                <a href="#"><img src="../img/phone.png"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        <p>COPYRIGHTS &copy; 2020 all rights reserved</p>
+    </div>
+</footer>
+
+
+</html>
